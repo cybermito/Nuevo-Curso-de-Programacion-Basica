@@ -1,2 +1,4 @@
-# Nuevo-Curso-de-Prgramacion-Basica
-Nuevo curso de programación básica
+# Nuevo Curso de Programación Básica
+
+Archivos creados en el nuevo curso de programación básica con html, css y javascript
+
