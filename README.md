@@ -2,3 +2,11 @@
 
 Archivos creados en el nuevo curso de programación básica con html, css y javascript
 
+Pasos:
+1.- Crear tu primer sitio web
+2.- Sitios web con HTML
+3.- Estructura HTML
+4.- Editores de texto para programación (Visual Studio Code, Kwrite, Atom, etc)
+5.- Declaración de variables en la parte script
+6.- Algoritmo del juego "Piedra, papel o tijera" (Variables y condiciones)
+7.- Algoritmo avanzado del juego "Piedra, papel o Tijera"
