@@ -11,4 +11,4 @@ Pasos:
 5. Declaración de variables en la parte script
 6. Algoritmo del juego "Piedra, papel o tijera" (Variables y condiciones)
 7. Algoritmo avanzado del juego "Piedra, papel o Tijera"
-8. 
+8. Creando la parte aleatoria para la elección del PC
