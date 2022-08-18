@@ -50,7 +50,7 @@
         }
 
         //Combate piedra, papel o tijera
-
+        /*
         if (jugador == pc){
             alert("EMPATE")
         } else if (jugador == 1 && pc == 3) {
@@ -58,6 +58,16 @@
         } else if (jugador == 2 && pc == 1) {
             alert("GANASTE ")
         } else if (jugador == 3 && pc == 2) {
+            alert("GANASTE")
+        } else {
+            alert("PERDISTE")
+        }
+        */
+
+        // Código acortado sin perder la legibilidad, utilizando la logica OR "||"
+        if (jugador == pc) {
+            alert("EMPATE")
+        } else if ((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)){
             alert("GANASTE")
         } else {
             alert("PERDISTE")
