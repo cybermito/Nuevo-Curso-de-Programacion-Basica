@@ -10,6 +10,21 @@
         function aleatorio(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min)
         }
+        //Creamos la función eleccion de jugada para refactorizar el programa usando funciones.
+        function eleccion(jugada){
+            let resultado = ""
+            if (jugada == 1){
+                resultado = "Piedra 🥌"
+            } else if (jugada == 2){
+                resultado = "Papel 📋"
+            } else if (jugada == 3) {
+                resultado = "Tijera ✂"
+            } else {
+                resultado = "MAL ELEGIDO"
+            }
+
+            return resultado
+        }
         // 1 es piedra, 2 es papel, 3 es tijera
         let jugador = 0
         //let min = 1
@@ -30,7 +45,9 @@
         if (jugador == 3){
             alert("Elegiste tijera")
         }*/
+
         //Elección Jugador
+        /* todo este bloque de código queda ahora refactorizado en una función, elección(jugada)
         if (jugador == 1){
             alert("Elegiste 🥌")
         } else if (jugador == 2){
@@ -48,6 +65,9 @@
         } else if (pc == 3) {
             alert("El Pc eligió ✂")
         }
+        */
+       alert("Pc eligió " + eleccion(pc))
+       alert("Tu elegiste " + eleccion(jugador))
 
         //Combate piedra, papel o tijera
         /*
