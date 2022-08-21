@@ -15,4 +15,5 @@ Pasos:
     8.1. Reto reducir líneas de código para mejorar el programa.
 9. Refactor del código usando funciones
 10. Ciclos
-
+11. Archivos HTML y Javascript. Estructura del proyecto y estructura de archivos.
+12. 
