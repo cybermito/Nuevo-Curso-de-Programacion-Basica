@@ -1,6 +1,7 @@
 # Nuevo Curso de Programación Básica
 
 Archivos creados en el nuevo curso de programación básica con html, css y javascript
+Nota: Con META/Windows + . se abre la ventana de emojis de KDE Plasma.
 
 
 Pasos:
