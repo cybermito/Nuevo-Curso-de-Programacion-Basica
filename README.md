@@ -17,6 +17,7 @@ Pasos:
 9. Refactor del código usando funciones
 10. Ciclos
 11. Archivos HTML y Javascript. Estructura del proyecto y estructura de archivos.
-12. ¿Qué es el DOM
+12. ¿Qué es el DOM?
 13. Maquetación con HTML
-14. 
+14. Sección elegir mascota. (Repaso por las distintas opciones de la etiqueta input)
+15. 
