@@ -20,4 +20,5 @@ Pasos:
 12. ¿Qué es el DOM?
 13. Maquetación con HTML
 14. Sección elegir mascota. (Repaso por las distintas opciones de la etiqueta input)
-15. 
+15. ¿Dónde ubicar la etiqueta script? Conectando HTML con Javascript
+16. 
