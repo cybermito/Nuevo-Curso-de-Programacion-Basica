@@ -22,4 +22,5 @@ Pasos:
 14. Sección elegir mascota. (Repaso por las distintas opciones de la etiqueta input)
 15. ¿Dónde ubicar la etiqueta script? Conectando HTML con Javascript
 16. Escuchando con JS
-17. 
+17. addEventListener
+18. 
