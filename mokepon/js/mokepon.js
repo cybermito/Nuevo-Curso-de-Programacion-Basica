@@ -5,22 +5,31 @@ function iniciarJuego(){
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 }
 function seleccionarMascotaJugador() {
-    //Resolviendo el reto de selección de mascota parte 1
-    //Esta sería una primera forma, ahora veremos que existen otras
-    //las cuales es usando las buenas prácticas y organización del código.
-    let mascota =""
-    if (document.getElementById('hipodoge').checked){
+    //Resolviendo el reto de selección de mascota parte 2
+    //Usamos variables para obtener el objeto completo con todos sus atributos y métodos que 
+    //podrémos usar posteriormente en las condicionales. 
+   
+    let inputHipodoge = document.getElementById('hipodoge')
+    let inputCapipego = document.getElementById('capipepo')
+    let inputRatigueya = document.getElementById('ratigueya')
+    let inputLangostelvis = document.getElementById('langostelvis')
+    let inputTucapalma = document.getElementById('tucapalma')
+    let inputPydos = document.getElementById('pydos')
+
+    if (inputHipodoge.checked){
         mascota = "Hipodoge"
-    }else if (document.getElementById('capipepo').checked){
+    }else if (inputCapipego.checked){
         mascota = "Capipepo"
-    }else if (document.getElementById('ratigueya').checked){
+    }else if (inputRatigueya.checked){
         mascota = "Ratigueya"
-    }else if (document.getElementById('langostelvis').checked){
-        mascota = "Langostelvi"
-    }else if (document.getElementById('tucapalma').checked){
+    }else if (inputLangostelvis.checked){
+        mascota = "Langostelvis"
+    }else if (inputTucapalma.checked){
         mascota = "Tucapalma"
-    }else if (document.getElementById('pydos').checked){
+    }else if (inputPydos.checked){
         mascota = "Pydos"
+    }else {
+        mascota ="No seleccionaste ninguna mascota"
     }
     alert("Seleccionaste tu mascota: " + mascota )
 }
