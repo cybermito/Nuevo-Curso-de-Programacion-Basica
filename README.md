@@ -23,4 +23,5 @@ Pasos:
 15. ¿Dónde ubicar la etiqueta script? Conectando HTML con Javascript
 16. Escuchando con JS
 17. addEventListener
-18. 
+18. Manipulación del DOM
+19. 

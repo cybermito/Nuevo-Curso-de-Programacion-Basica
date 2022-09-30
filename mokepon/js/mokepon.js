@@ -15,6 +15,7 @@ function seleccionarMascotaJugador() {
     let inputLangostelvis = document.getElementById('langostelvis')
     let inputTucapalma = document.getElementById('tucapalma')
     let inputPydos = document.getElementById('pydos')
+    let spanMascotaJugador = document.getElementById('mascota-jugador')
 
     if (inputHipodoge.checked){
         mascota = "Hipodoge"
@@ -31,7 +32,8 @@ function seleccionarMascotaJugador() {
     }else {
         mascota ="No seleccionaste ninguna mascota"
     }
-    alert("Seleccionaste tu mascota: " + mascota )
+    //alert("Seleccionaste tu mascota: " + mascota )
+    spanMascotaJugador.innerHTML = mascota
 }
 
 window.addEventListener('load', iniciarJuego)
