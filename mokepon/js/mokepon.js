@@ -4,6 +4,11 @@ function iniciarJuego(){
     let btnMascotaJugador = document.getElementById('btn-mascota')
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 }
+
+function aleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min )
+}
+
 function seleccionarMascotaJugador() {
     //Resolviendo el reto de selección de mascota parte 2
     //Usamos variables para obtener el objeto completo con todos sus atributos y métodos que 
@@ -34,6 +39,28 @@ function seleccionarMascotaJugador() {
     }
     //alert("Seleccionaste tu mascota: " + mascota )
     spanMascotaJugador.innerHTML = mascota
+
+    //Llamamos a la funcion seleccionarMascotaEnemigo para sacar la mascota del enemigo.
+    seleccionarMascotaEnemigo()
+}
+
+function seleccionarMascotaEnemigo() {
+    let ataqueAleatorio = aleatorio(1,6)
+    let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+
+    if (aleatorio == 1){
+        spanMascotaEnemigo.innerHTML = 'Hipodoge'
+    }else if (ataqueAleatorio == 2) {
+        spanMascotaEnemigo.innerHTML = 'Capipego'
+    }else if (ataqueAleatorio == 3) {
+        spanMascotaEnemigo.innerHTML = 'Ratigueya'
+    }else if (ataqueAleatorio == 4) {
+        spanMascotaEnemigo.innerHTML = 'Langostelvi'
+    }else if (ataqueAleatorio == 5) {
+        spanMascotaEnemigo.innerHTML = 'Tucapalma'
+    }else {
+        spanMascotaEnemigo.innerHTML = 'Pydos'
+    }
 }
 
 window.addEventListener('load', iniciarJuego)
