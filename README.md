@@ -25,4 +25,5 @@ Pasos:
 17. addEventListener
 18. Manipulación del DOM
 19. Enemigos Aleatorios
-20. 
+20. Ataques en Javascript (Jugador y aleatorio Enemigo)
+21. 

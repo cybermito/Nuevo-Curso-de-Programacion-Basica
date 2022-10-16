@@ -1,12 +1,25 @@
 // alert("Hola, mundo JS")
 
-function iniciarJuego(){
-    let btnMascotaJugador = document.getElementById('btn-mascota')
-    btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
-}
+//Declaración variables globales
+let ataqueJugador
+let ataqueEnemigo
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min )
+}
+
+function iniciarJuego(){
+    let btnMascotaJugador = document.getElementById('btn-mascota')
+    btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+
+    //Iniciamos las variables de selección tipo de ataque y su listener para el jugador
+    let botonFuego = document.getElementById('btn-fuego')
+    let botonAgua = document.getElementById('btn-agua')
+    let botonTierra = document.getElementById('btn-tierra')
+
+    botonFuego.addEventListener('click', ataqueFuego)
+    botonAgua.addEventListener('click', ataqueAgua)
+    botonTierra.addEventListener('click', ataqueTierra)
 }
 
 function seleccionarMascotaJugador() {
@@ -45,21 +58,48 @@ function seleccionarMascotaJugador() {
 }
 
 function seleccionarMascotaEnemigo() {
-    let ataqueAleatorio = aleatorio(1,6)
+    let mascotaAleatoria = aleatorio(1,6)
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
     if (aleatorio == 1){
         spanMascotaEnemigo.innerHTML = 'Hipodoge'
-    }else if (ataqueAleatorio == 2) {
+    }else if (mascotaAleatoria == 2) {
         spanMascotaEnemigo.innerHTML = 'Capipego'
-    }else if (ataqueAleatorio == 3) {
+    }else if (mascotaAleatoria == 3) {
         spanMascotaEnemigo.innerHTML = 'Ratigueya'
-    }else if (ataqueAleatorio == 4) {
+    }else if (mascotaAleatoria == 4) {
         spanMascotaEnemigo.innerHTML = 'Langostelvi'
-    }else if (ataqueAleatorio == 5) {
+    }else if (mascotaAleatoria == 5) {
         spanMascotaEnemigo.innerHTML = 'Tucapalma'
     }else {
         spanMascotaEnemigo.innerHTML = 'Pydos'
+    }
+}
+
+function ataqueFuego() {
+    ataqueJugador = 'Fuego'
+    ataqueAleatorioEnemigo()
+}
+
+function ataqueAgua(){
+    ataqueJugador = 'Agua'
+    ataqueAleatorioEnemigo()
+}
+
+function ataqueTierra(){
+    ataqueJugador = 'Tierra'
+    ataqueAleatorioEnemigo()
+}
+
+function ataqueAleatorioEnemigo(){
+    let ataqueAleatorio = aleatorio(1, 3)
+
+    if (ataqueAleatorio == 1){
+        ataqueEnemigo = 'Fuego'
+    } else if (ataqueAleatorio == 2){
+        ataqueEnemigo = 'Agua'
+    } else {
+        ataqueEnemigo = 'Tierra'
     }
 }
 
