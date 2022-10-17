@@ -26,4 +26,5 @@ Pasos:
 18. Manipulación del DOM
 19. Enemigos Aleatorios
 20. Ataques en Javascript (Jugador y aleatorio Enemigo)
-21. 
+21. Imprimiendo los ataques seleccionados (Jugador y Enemgio)
+22. 
