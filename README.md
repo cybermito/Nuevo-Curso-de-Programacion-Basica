@@ -26,5 +26,6 @@ Pasos:
 18. Manipulación del DOM
 19. Enemigos Aleatorios
 20. Ataques en Javascript (Jugador y aleatorio Enemigo)
-21. Imprimiendo los ataques seleccionados (Jugador y Enemgio)
-22. 
+21. Imprimiendo los ataques seleccionados (Jugador y Enemigo)
+22. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
+23. 

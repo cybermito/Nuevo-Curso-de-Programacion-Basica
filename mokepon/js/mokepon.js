@@ -102,17 +102,30 @@ function ataqueAleatorioEnemigo(){
         ataqueEnemigo = 'Tierra'
     }
 
-    crearMensaje()
+    combate()
 }
 
-function crearMensaje(){
+function combate(){
+
+    if (ataqueJugador == ataqueEnemigo) {
+        crearMensaje("EMPATE")
+    } else if ((ataqueJugador == 'Fuego' && ataqueEnemigo == 'Tierra') || (ataqueJugador == 'Agua' && ataqueEnemigo == 'Fuego') || (ataqueJugador == 'Tierra' && ataqueEnemigo == 'Agua')){
+        
+        crearMensaje("GANASTE ")
+    } else {
+        
+        crearMensaje("PERDISTE ")
+    }
+}
+
+function crearMensaje(resultadoCombate){
     //Creamos el elemento HTML
     let parrafo = document.createElement('p')
     //Seleccionamos el elemento que va a contener el nuevo elemento HTML
     let sectionMensajes = document.getElementById('mensajes')
 
     //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
-    parrafo.innerHTML = 'Tu mascota atacó ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - Pendiente de programar'
+    parrafo.innerHTML = 'Tu mascota atacó ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
     //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
     sectionMensajes.appendChild(parrafo)
 }
