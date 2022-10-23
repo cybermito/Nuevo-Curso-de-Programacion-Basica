@@ -28,4 +28,6 @@ Pasos:
 20. Ataques en Javascript (Jugador y aleatorio Enemigo)
 21. Imprimiendo los ataques seleccionados (Jugador y Enemigo)
 22. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
-23. 
+23. Tablas de verdad (AND, OR, NOT, XOR)
+24. Creando el contador de Vidas.
+25. 

@@ -3,6 +3,8 @@
 //Declaración variables globales
 let ataqueJugador
 let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min )
@@ -107,14 +109,21 @@ function ataqueAleatorioEnemigo(){
 
 function combate(){
 
+    let spanVidasJugador = document.getElementById('vidas-jugador')
+    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
     if (ataqueJugador == ataqueEnemigo) {
         crearMensaje("EMPATE")
     } else if ((ataqueJugador == 'Fuego' && ataqueEnemigo == 'Tierra') || (ataqueJugador == 'Agua' && ataqueEnemigo == 'Fuego') || (ataqueJugador == 'Tierra' && ataqueEnemigo == 'Agua')){
         
         crearMensaje("GANASTE ")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     } else {
         
         crearMensaje("PERDISTE ")
+        vidasJugador--
+        spanVidasJugador.innerHTML = vidasJugador
     }
 }
 
