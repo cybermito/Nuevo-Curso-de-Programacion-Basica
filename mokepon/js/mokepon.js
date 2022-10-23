@@ -125,6 +125,18 @@ function combate(){
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     }
+    revisarVidas()
+}
+
+function revisarVidas() {
+
+    if (vidasEnemigo == 0) {
+
+        crearMensajeFinal("FELICIDADES, ¡Ganaste! :)")
+    } else if (vidasJugador == 0) {
+        
+        crearMensajeFinal("Oh, lo siento ¡Perdiste! :(")
+    }
 }
 
 function crearMensaje(resultadoCombate){
@@ -135,6 +147,18 @@ function crearMensaje(resultadoCombate){
 
     //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
     parrafo.innerHTML = 'Tu mascota atacó ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
+    //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
+    sectionMensajes.appendChild(parrafo)
+}
+
+function crearMensajeFinal(resultadoFinal){
+    //Creamos el elemento HTML
+    let parrafo = document.createElement('p')
+    //Seleccionamos el elemento que va a contener el nuevo elemento HTML
+    let sectionMensajes = document.getElementById('mensajes')
+
+    //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
+    parrafo.innerHTML = resultadoFinal
     //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
     sectionMensajes.appendChild(parrafo)
 }

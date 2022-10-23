@@ -30,4 +30,5 @@ Pasos:
 22. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
 23. Tablas de verdad (AND, OR, NOT, XOR)
 24. Creando el contador de Vidas.
-25. 
+25. Revisando quién ganó el juego. 
+26. 
