@@ -3,8 +3,8 @@
 Archivos creados en el nuevo curso de programación básica con html, css y javascript
 Nota: Con META/Windows + . se abre la ventana de emojis de KDE Plasma.
 
-
 Pasos:
+
 1. Crear tu primer sitio web
 2. Sitios web con HTML
 3. Estructura HTML
@@ -30,5 +30,6 @@ Pasos:
 22. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
 23. Tablas de verdad (AND, OR, NOT, XOR)
 24. Creando el contador de Vidas.
-25. Revisando quién ganó el juego. 
-26. 
+25. Revisando quién ganó el juego.
+26. Reiniciando el juego.
+27. 

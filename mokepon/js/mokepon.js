@@ -14,14 +14,16 @@ function iniciarJuego(){
     let btnMascotaJugador = document.getElementById('btn-mascota')
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 
-    //Iniciamos las variables de selección tipo de ataque y su listener para el jugador
+    //Iniciamos las variables de los escuchadores para los distintos botones que vamos a usar. 
     let botonFuego = document.getElementById('btn-fuego')
     let botonAgua = document.getElementById('btn-agua')
     let botonTierra = document.getElementById('btn-tierra')
+    let botonReiniciar = document.getElementById('btn-reiniciar')
 
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
     botonTierra.addEventListener('click', ataqueTierra)
+    botonReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 function seleccionarMascotaJugador() {
@@ -161,6 +163,19 @@ function crearMensajeFinal(resultadoFinal){
     parrafo.innerHTML = resultadoFinal
     //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
     sectionMensajes.appendChild(parrafo)
+
+    let botonFuego = document.getElementById('btn-fuego')
+    let botonAgua = document.getElementById('btn-agua')
+    let botonTierra = document.getElementById('btn-tierra')
+
+    botonFuego.disabled = true
+    botonAgua.disabled = true
+    botonTierra.disabled = true
+    
+}
+
+function reiniciarJuego(){
+    location.reload()
 }
 
 window.addEventListener('load', iniciarJuego)
