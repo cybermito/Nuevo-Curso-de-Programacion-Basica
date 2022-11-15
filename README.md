@@ -32,4 +32,5 @@ Pasos:
 24. Creando el contador de Vidas.
 25. Revisando quién ganó el juego.
 26. Reiniciando el juego.
-27. 
+27. Ocultando elementos HTML con JS para mejorar la UX del juego.
+28. 

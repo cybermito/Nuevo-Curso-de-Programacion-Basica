@@ -11,6 +11,12 @@ function aleatorio(min, max) {
 }
 
 function iniciarJuego(){
+
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
+    let sectionReiniciar =document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'none'
+
     let btnMascotaJugador = document.getElementById('btn-mascota')
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 
@@ -27,6 +33,12 @@ function iniciarJuego(){
 }
 
 function seleccionarMascotaJugador() {
+
+    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    sectionSeleccionarMascota.style.display = 'none'
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+
     //Resolviendo el reto de selección de mascota parte 2
     //Usamos variables para obtener el objeto completo con todos sus atributos y métodos que 
     //podrémos usar posteriormente en las condicionales. 
@@ -171,6 +183,9 @@ function crearMensajeFinal(resultadoFinal){
     botonFuego.disabled = true
     botonAgua.disabled = true
     botonTierra.disabled = true
+
+    let sectionReiniciar =document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'block'
     
 }
 
