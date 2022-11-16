@@ -34,4 +34,5 @@ Pasos:
 26. Reiniciando el juego.
 27. Ocultando elementos HTML con JS para mejorar la UX del juego.
 28. Anatomía de CSS.
-29. 
+29. Tipos de display.
+30. 

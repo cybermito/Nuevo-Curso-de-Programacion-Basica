@@ -4,3 +4,25 @@
     height: 50px;
     background-color: teal;
 }
+
+h2 {
+    background-color: aqua;
+}
+
+label {
+    background-color: brown ;
+    width: 300px;
+    height: 50px;
+}
+
+input {
+    background-color: rgb(247, 223, 40);
+    width: 300px;
+    height: 50px;
+}
+
+button {
+    background-color: rgb(223, 97, 173);
+    width: 300px;
+    height: 50px;
+}
