@@ -36,4 +36,5 @@ Pasos:
 28. Anatomía de CSS.
 29. Tipos de display.
 30. Flexbox.
-31. 
+31. Modelo de Caja.
+32. 
