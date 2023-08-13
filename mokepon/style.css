@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .titulo {
     text-align: center;
     color: lightcoral;
@@ -5,10 +10,22 @@
 }
 
 #seleccionar-mascota{
+    margin: 100px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.tarjeta-mokepon{
+    margin:10px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: burlywood;
+    border: 1px solid hotpink;
+}
 
+input{
+    display: none;
+}
