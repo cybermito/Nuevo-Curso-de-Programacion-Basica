@@ -19,7 +19,7 @@ body{
 }
 
 #seleccionar-mascota{
-    margin: 100px auto;
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
