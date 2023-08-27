@@ -38,4 +38,5 @@ Pasos:
 30. Flexbox.
 31. Modelo de Caja.
 32. Imágenes para los Mokepones.
-33. 
+33. Estilos del botón.
+34. 

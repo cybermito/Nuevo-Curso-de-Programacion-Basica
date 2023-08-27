@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300&display=swap');
 
 *{
     margin: 0;
@@ -7,11 +7,12 @@
 }
 
 body{
-    font-family: 'ADLaM Display', cursive;
+    font-family: 'Poppins', sans-serif;
     background-color: #041562;
 }
 
 .titulo {
+    font-family: 'ADLaM Display', cursive;
     text-align: center;
     color: white;
     font-size: 32px;
@@ -35,6 +36,8 @@ body{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjeta-mokepon{
@@ -53,6 +56,17 @@ body{
 
 .tarjeta-mokepon img {
     width: 80px;
+}
+
+#btn-mascota {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
 }
 
 input{
