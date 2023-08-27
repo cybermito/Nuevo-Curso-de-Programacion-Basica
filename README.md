@@ -37,4 +37,5 @@ Pasos:
 29. Tipos de display.
 30. Flexbox.
 31. Modelo de Caja.
-32. 
+32. Imágenes para los Mokepones.
+33. 

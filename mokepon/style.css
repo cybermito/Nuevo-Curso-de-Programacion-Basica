@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: 'ADLaM Display', cursive;
+    background-color: #041562;
+}
+
 .titulo {
     text-align: center;
-    color: lightcoral;
-    background-color: teal;
+    color: white;
+    font-size: 32px;
 }
 
 #seleccionar-mascota{
@@ -17,13 +25,34 @@
     align-items: center;
 }
 
+.subtitulo{
+    color: white;
+    font-size: 20px;
+}
+
+.tarjetas{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .tarjeta-mokepon{
-    margin:10px;
-    width: 100px;
+
+    width: 200px;
     height: 100px;
     padding: 10px;
-    background-color: aquamarine;
-    border: 1px solid hotpink;
+    background-color: #11468f;
+    border-radius: 20px;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+.tarjeta-mokepon img {
+    width: 80px;
 }
 
 input{
