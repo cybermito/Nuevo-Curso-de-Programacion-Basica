@@ -37,39 +37,39 @@ function seleccionarMascotaJugador() {
     let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
     sectionSeleccionarMascota.style.display = 'none'
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display = 'block'
+    sectionSeleccionarAtaque.style.display = 'flex'
 
     //Resolviendo el reto de selección de mascota parte 2
     //Usamos variables para obtener el objeto completo con todos sus atributos y métodos que 
     //podrémos usar posteriormente en las condicionales. 
    
-    let inputHipodoge = document.getElementById('hipodoge')
-    let inputCapipego = document.getElementById('capipepo')
-    let inputRatigueya = document.getElementById('ratigueya')
-    let inputLangostelvis = document.getElementById('langostelvis')
-    let inputTucapalma = document.getElementById('tucapalma')
-    let inputPydos = document.getElementById('pydos')
+    let inputRedDragon = document.getElementById('redDragon')
+    let inputGreyDragon = document.getElementById('greyDragon')
+    let inputBlueDragon = document.getElementById('blueDragon')
+    let inputPinkDragon = document.getElementById('pinkDragon')
+    let inputIntelecDragon = document.getElementById('intelecDragon')
+    let inputPyDragon = document.getElementById('pyDragon')
     let spanMascotaJugador = document.getElementById('mascota-jugador')
 
-    if (inputHipodoge.checked){
-        mascota = "Hipodoge"
-    }else if (inputCapipego.checked){
-        mascota = "Capipepo"
-    }else if (inputRatigueya.checked){
-        mascota = "Ratigueya"
-    }else if (inputLangostelvis.checked){
-        mascota = "Langostelvis"
-    }else if (inputTucapalma.checked){
-        mascota = "Tucapalma"
-    }else if (inputPydos.checked){
-        mascota = "Pydos"
+    if (inputRedDragon.checked){
+        mascota = "RedDragon"
+    }else if (inputGreyDragon.checked){
+        mascota = "GreyDragono"
+    }else if (inputBlueDragon.checked){
+        mascota = "BlueDragon"
+    }else if (inputPinkDragon.checked){
+        mascota = "PinkDragon"
+    }else if (inputIntelecDragon.checked){
+        mascota = "IntelecDragon"
+    }else if (inputPyDragon.checked){
+        mascota = "PyDragon"
     }else {
         mascota ="No seleccionaste ninguna mascota"
     }
     //alert("Seleccionaste tu mascota: " + mascota )
     spanMascotaJugador.innerHTML = mascota
 
-    //Llamamos a la funcion seleccionarMascotaEnemigo para sacar la mascota del enemigo.
+    //Llamamos a la función seleccionarMascotaEnemigo para sacar la mascota del enemigo.
     seleccionarMascotaEnemigo()
 }
 
@@ -78,17 +78,17 @@ function seleccionarMascotaEnemigo() {
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
     if (aleatorio == 1){
-        spanMascotaEnemigo.innerHTML = 'Hipodoge'
+        spanMascotaEnemigo.innerHTML = 'RedDragon'
     }else if (mascotaAleatoria == 2) {
-        spanMascotaEnemigo.innerHTML = 'Capipego'
+        spanMascotaEnemigo.innerHTML = 'GreyDragono'
     }else if (mascotaAleatoria == 3) {
-        spanMascotaEnemigo.innerHTML = 'Ratigueya'
+        spanMascotaEnemigo.innerHTML = 'BlueDrago'
     }else if (mascotaAleatoria == 4) {
-        spanMascotaEnemigo.innerHTML = 'Langostelvi'
+        spanMascotaEnemigo.innerHTML = 'PinkDragon'
     }else if (mascotaAleatoria == 5) {
-        spanMascotaEnemigo.innerHTML = 'Tucapalma'
+        spanMascotaEnemigo.innerHTML = 'IntelecDragon'
     }else {
-        spanMascotaEnemigo.innerHTML = 'Pydos'
+        spanMascotaEnemigo.innerHTML = 'PyDragon'
     }
 }
 
@@ -160,7 +160,7 @@ function crearMensaje(resultadoCombate){
     let sectionMensajes = document.getElementById('mensajes')
 
     //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
-    parrafo.innerHTML = 'Tu mascota atacó ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
+    parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
     //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
     sectionMensajes.appendChild(parrafo)
 }

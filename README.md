@@ -37,4 +37,8 @@ Pasos:
 29. Tipos de display.
 30. Flexbox.
 31. Modelo de Caja.
-32. 
+32. Imágenes para los Mokepones.
+33. Estilos del botón.
+34. Adaptando el HTML al diseño del juego.
+35. Layout: título y ataques.
+36. 
