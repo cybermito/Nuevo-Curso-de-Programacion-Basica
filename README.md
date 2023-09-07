@@ -40,5 +40,6 @@ Pasos:
 32. Imágenes para los Mokepones.
 33. Estilos del botón.
 34. Adaptando el HTML al diseño del juego.
+<<<<<<< HEAD
 35. Layout: título y ataques.
 36. 
