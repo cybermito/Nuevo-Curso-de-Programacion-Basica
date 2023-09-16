@@ -42,4 +42,5 @@ Pasos:
 34. Adaptando el HTML al diseño del juego.
 <<<<<<< HEAD
 35. Layout: título y ataques.
-36. 
+36. Adaptando Javascritp al diseño. Modificando el apartado mensajes y mensaje final. 
+37. 

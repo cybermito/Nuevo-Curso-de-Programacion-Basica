@@ -52,16 +52,7 @@
                 </label>
                 <input type="radio" name="mascota" id="pyDragon"/>
             </div>
-            <!-- MASCOTAS
 
-            Hipodoge -> Agua
-            Capipego -> Tierra
-            Ratigueya -> Fuego
-            Langostelvis -> Agua y Fuego
-            Tucapalma -> Agua y Tierra
-            Pydos -> Tierra y Fuego 
-
-            -->
             <button id="btn-mascota">Seleccionar</button>
 
         </section>
@@ -87,15 +78,16 @@
 
             <div>
                 <section id="mensajes">
-                    <!-- <p>Tu mascota atacó con fuego, la mascota del enemigo atacó con tierra - GANASTE 🎉</p> -->
-                </section>
-            
-                <section id="reiniciar">
-                    <button id="btn-reiniciar">Reiniciar</button>
+                    <p id="resultado">¡Vamos!</p>
+                    <section id="reiniciar">
+                        <button id="btn-reiniciar">Reiniciar</button>
+                    </section>
                 </section>
             </div>
 
             <div>
+                <div id="ataques-del-jugador"></div>
+                <div id="ataques-del-enemigo"></div>
                 <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
                 <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
             </div>

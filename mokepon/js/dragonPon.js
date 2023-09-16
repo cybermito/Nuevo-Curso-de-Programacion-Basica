@@ -154,27 +154,36 @@ function revisarVidas() {
 }
 
 function crearMensaje(resultadoCombate){
-    //Creamos el elemento HTML
-    let parrafo = document.createElement('p')
     //Seleccionamos el elemento que va a contener el nuevo elemento HTML
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
+    let ataquesDelJugador = document.getElementById('ataques-del-jugador')
+    let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
-    //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
-    parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
+    //Creamos el elemento HTML
+    let nuevoAtaqueDelJugador = document.createElement('p')
+    let nuevoAtaqueDelEnemigo = document.createElement('p')
+
+    sectionMensajes.innerHTML = resultadoCombate
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
+/*     let parrafo = document.createElement('p')
+ */    //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
+/*     parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultadoCombate
+*/
     //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
-    sectionMensajes.appendChild(parrafo)
+    
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
 
 function crearMensajeFinal(resultadoFinal){
-    //Creamos el elemento HTML
-    let parrafo = document.createElement('p')
     //Seleccionamos el elemento que va a contener el nuevo elemento HTML
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
 
     //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
-    parrafo.innerHTML = resultadoFinal
-    //Insertamos el elemento creado como hijo del elemento padre seleccionado (sectionMensajes)
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultadoFinal
+    //parrafo.innerHTML = resultadoFinal
 
     let botonFuego = document.getElementById('btn-fuego')
     let botonAgua = document.getElementById('btn-agua')

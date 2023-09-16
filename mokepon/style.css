@@ -97,3 +97,20 @@ input{
 .boton-de-ataque img{
     height: 50px;
 }
+
+#mensajes {
+    width: 280px;
+    background: #eeeeee;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#btn-reiniciar{
+    border: transparent;
+    color:#11468f
+    font-family: 'Poppins', sans-serif;
+}
