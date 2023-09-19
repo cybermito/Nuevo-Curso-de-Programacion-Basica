@@ -40,7 +40,7 @@ Pasos:
 32. Imágenes para los Mokepones.
 33. Estilos del botón.
 34. Adaptando el HTML al diseño del juego.
-<<<<<<< HEAD
 35. Layout: título y ataques.
-36. Adaptando Javascritp al diseño. Modificando el apartado mensajes y mensaje final. 
-37. 
+36. Adaptando Javascritp al diseño. Modificando el apartado mensajes y mensaje final.
+37. CSS Grid, otra forma de presentar el contenido de la web.
+38. 

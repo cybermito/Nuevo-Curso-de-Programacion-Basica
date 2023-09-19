@@ -125,6 +125,9 @@ function combate(){
 
     let spanVidasJugador = document.getElementById('vidas-jugador')
     let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+    
+    spanVidasJugador.innerHTML = vidasJugador
+    spanVidasEnemigo.innerHTML = vidasEnemigo
 
     if (ataqueJugador == ataqueEnemigo) {
         crearMensaje("EMPATE")
