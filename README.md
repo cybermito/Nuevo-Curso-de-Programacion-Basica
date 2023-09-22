@@ -43,4 +43,4 @@ Pasos:
 35. Layout: título y ataques.
 36. Adaptando Javascritp al diseño. Modificando el apartado mensajes y mensaje final.
 37. CSS Grid, otra forma de presentar el contenido de la web.
-38. 
+38. Responsive Desing
