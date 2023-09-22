@@ -73,6 +73,10 @@ input{
     display: none;
 }
 
+input:checked + label{
+    background-color: rgb(57, 110, 191);
+}
+
 #seleccionar-ataque{
     margin: 50px auto;
     /* display: flex; Comentamos esta línea ya que es ejecutada en el script JS */

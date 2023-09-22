@@ -7,3 +7,9 @@ https://cssgridgarden.com/#es
 Flexbox Froggy - A Game for learning CSS Flexbox
 http://flexboxfroggy.com/#es
 
+Pseudos clases - CSS|Modificando
+https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes
+
+Color Palettes for Designers and Artists - Color Hunt
+https://colorhunt.co/
+
