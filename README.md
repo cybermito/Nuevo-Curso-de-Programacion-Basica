@@ -51,3 +51,9 @@ Pasos:
 37. CSS Grid, otra forma de presentar el contenido de la web.
 38. Responsive Desing.
 39. Detalles Finales, Pseudo-Clases.
+
+    ## Optimización del código.
+
+40. Revisión del código.
+41. Don't Repeat Yourself (DRY)
+42. 

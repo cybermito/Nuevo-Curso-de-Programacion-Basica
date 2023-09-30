@@ -1,6 +1,35 @@
 // alert("Hola, mundo JS")
 
 //Declaración variables globales
+const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+const sectionReiniciar =document.getElementById('reiniciar')
+const btnMascotaJugador = document.getElementById('btn-mascota')
+//Iniciamos las variables de los escuchadores para los distintos botones que vamos a usar.
+const botonFuego = document.getElementById('btn-fuego')
+const botonAgua = document.getElementById('btn-agua')
+const botonTierra = document.getElementById('btn-tierra')
+const botonReiniciar = document.getElementById('btn-reiniciar')
+
+const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+const inputRedDragon = document.getElementById('redDragon')
+const inputGreyDragon = document.getElementById('greyDragon')
+const inputPinkDragon = document.getElementById('pinkDragon')
+const inputIntelecDragon = document.getElementById('intelecDragon')
+const inputPyDragon = document.getElementById('pyDragon')
+const spanMascotaJugador = document.getElementById('mascota-jugador')
+
+const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+
+const spanVidasJugador = document.getElementById('vidas-jugador')
+const spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
+//Seleccionamos el elemento que va a contener el nuevo elemento HTML
+const sectionMensajes = document.getElementById('resultado')
+const ataquesDelJugador = document.getElementById('ataques-del-jugador')
+const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+
+
+
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
@@ -11,21 +40,9 @@ function aleatorio(min, max) {
 }
 
 function iniciarJuego(){
-
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
-    let sectionReiniciar =document.getElementById('reiniciar')
     sectionReiniciar.style.display = 'none'
-
-    let btnMascotaJugador = document.getElementById('btn-mascota')
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
-
-    //Iniciamos las variables de los escuchadores para los distintos botones que vamos a usar. 
-    let botonFuego = document.getElementById('btn-fuego')
-    let botonAgua = document.getElementById('btn-agua')
-    let botonTierra = document.getElementById('btn-tierra')
-    let botonReiniciar = document.getElementById('btn-reiniciar')
-
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
     botonTierra.addEventListener('click', ataqueTierra)
@@ -33,23 +50,8 @@ function iniciarJuego(){
 }
 
 function seleccionarMascotaJugador() {
-
-    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
     sectionSeleccionarMascota.style.display = 'none'
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'flex'
-
-    //Resolviendo el reto de selección de mascota parte 2
-    //Usamos variables para obtener el objeto completo con todos sus atributos y métodos que 
-    //podrémos usar posteriormente en las condicionales. 
-   
-    let inputRedDragon = document.getElementById('redDragon')
-    let inputGreyDragon = document.getElementById('greyDragon')
-    let inputBlueDragon = document.getElementById('blueDragon')
-    let inputPinkDragon = document.getElementById('pinkDragon')
-    let inputIntelecDragon = document.getElementById('intelecDragon')
-    let inputPyDragon = document.getElementById('pyDragon')
-    let spanMascotaJugador = document.getElementById('mascota-jugador')
 
     if (inputRedDragon.checked){
         mascota = "RedDragon"
@@ -75,8 +77,6 @@ function seleccionarMascotaJugador() {
 
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(1,6)
-    let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
-
     if (aleatorio == 1){
         spanMascotaEnemigo.innerHTML = 'RedDragon'
     }else if (mascotaAleatoria == 2) {
@@ -123,9 +123,6 @@ function ataqueAleatorioEnemigo(){
 
 function combate(){
 
-    let spanVidasJugador = document.getElementById('vidas-jugador')
-    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
-    
     spanVidasJugador.innerHTML = vidasJugador
     spanVidasEnemigo.innerHTML = vidasEnemigo
 
@@ -157,11 +154,6 @@ function revisarVidas() {
 }
 
 function crearMensaje(resultadoCombate){
-    //Seleccionamos el elemento que va a contener el nuevo elemento HTML
-    let sectionMensajes = document.getElementById('resultado')
-    let ataquesDelJugador = document.getElementById('ataques-del-jugador')
-    let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
-
     //Creamos el elemento HTML
     let nuevoAtaqueDelJugador = document.createElement('p')
     let nuevoAtaqueDelEnemigo = document.createElement('p')
@@ -181,22 +173,12 @@ function crearMensaje(resultadoCombate){
 }
 
 function crearMensajeFinal(resultadoFinal){
-    //Seleccionamos el elemento que va a contener el nuevo elemento HTML
-    let sectionMensajes = document.getElementById('resultado')
-
     //Creamos el contenido que va a tener el elemento creado, en este caso el párrafo
     sectionMensajes.innerHTML = resultadoFinal
     //parrafo.innerHTML = resultadoFinal
-
-    let botonFuego = document.getElementById('btn-fuego')
-    let botonAgua = document.getElementById('btn-agua')
-    let botonTierra = document.getElementById('btn-tierra')
-
     botonFuego.disabled = true
     botonAgua.disabled = true
     botonTierra.disabled = true
-
-    let sectionReiniciar =document.getElementById('reiniciar')
     sectionReiniciar.style.display = 'block'
     
 }
