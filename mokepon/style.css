@@ -132,10 +132,10 @@ input:checked + label{
 
 }
 
-@media (max-width: 420px){
+/* @media (max-width: 420px){
     .tarjetas .select-ataque{
-        /* flex-direction: column; */ /*Esta línea la comento ya que uso flex-wrap: wrap que me ubica
-        un elemento debajo del otro a medida que no van entrando en pantalla.*/
+        flex-direction: column;  Esta línea la comento ya que uso flex-wrap: wrap que me ubica
+        un elemento debajo del otro a medida que no van entrando en pantalla.
     }
 
-}
+} */

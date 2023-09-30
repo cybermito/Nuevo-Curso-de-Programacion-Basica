@@ -55,5 +55,6 @@ Pasos:
     ## Optimización del código.
 
 40. Revisión del código.
-41. Don't Repeat Yourself (DRY)
-42. 
+41. Don't Repeat Yourself (DRY).
+42. Clases y Objetos
+43. Clases y Objetos de DragonPon.
