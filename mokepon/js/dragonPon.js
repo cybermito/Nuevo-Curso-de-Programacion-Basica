@@ -29,7 +29,7 @@ const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
 
-
+let dragonPones = []
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
@@ -44,10 +44,12 @@ class DragonPon{
 }
 
 let redDragon = new DragonPon('RedDragon', './img/RedDragon.png', 5)
-let GreyDragon = new DragonPon('GreyDragon', './img/GreyDragon.png', 5)
-let BlueDragon = new DragonPon('BlueDragon', './img/BlueDragon.png', 5)
+let greyDragon = new DragonPon('GreyDragon', './img/GreyDragon.png', 5)
+let blueDragon = new DragonPon('BlueDragon', './img/BlueDragon.png', 5)
 
-console.log(redDragon)
+dragonPones.push(redDragon, greyDragon, blueDragon)
+
+console.log(dragonPones)
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min )
