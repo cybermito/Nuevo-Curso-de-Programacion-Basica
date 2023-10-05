@@ -59,3 +59,4 @@ Pasos:
 42. Clases y Objetos
 43. Clases y Objetos de DragonPon.
 44. Arrays o arreglos en JS.
+45. Objetos vs Arrays (Usando arrays dentro de los objetos y arrays dentro de arrays)

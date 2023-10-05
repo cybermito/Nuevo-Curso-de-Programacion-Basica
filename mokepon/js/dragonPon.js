@@ -40,6 +40,7 @@ class DragonPon{
         this.nombre = nombre
         this.foto = foto
         this.vidas = vida
+        this.ataque = []
     }
 }
 
@@ -47,9 +48,29 @@ let redDragon = new DragonPon('RedDragon', './img/RedDragon.png', 5)
 let greyDragon = new DragonPon('GreyDragon', './img/GreyDragon.png', 5)
 let blueDragon = new DragonPon('BlueDragon', './img/BlueDragon.png', 5)
 
-dragonPones.push(redDragon, greyDragon, blueDragon)
+redDragon.ataque.push(
+    {nombre: 'Fuego', id:'btn-fuego'},
+    {nombre: 'Fuego', id:'btn-fuego'},
+    {nombre: 'Fuego', id:'btn-fuego'},
+    {nombre: 'Agua', id:'btn-agua'},
+    {nombre: 'Tierra', id:'btn-tierra'},
+)
 
-console.log(dragonPones)
+blueDragon.ataque.push(
+    {nombre: 'Agua', id:'btn-fuego'},
+    {nombre: 'Agua', id:'btn-fuego'},
+    {nombre: 'Agua', id:'btn-fuego'},
+    {nombre: 'Fuego', id:'btn-agua'},
+    {nombre: 'Tierra', id:'btn-tierra'},
+)
+
+greyDragon.ataque.push(
+    {nombre: 'Tierra', id:'btn-fuego'},
+    {nombre: 'Tierra', id:'btn-fuego'},
+    {nombre: 'Tierra', id:'btn-fuego'},
+    {nombre: 'Agua', id:'btn-agua'},
+    {nombre: 'Fuego', id:'btn-tierra'},
+)
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min )
