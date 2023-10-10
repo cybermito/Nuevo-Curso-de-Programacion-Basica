@@ -27,9 +27,11 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 
 let dragonPones = []
+let opcionDeDragonPones
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
@@ -72,12 +74,27 @@ greyDragon.ataque.push(
     {nombre: 'Fuego', id:'btn-tierra'},
 )
 
+dragonPones.push(redDragon, greyDragon, blueDragon)
+
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min )
 }
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
+
+    dragonPones.forEach((dragonPon) => {
+        opcionDeDragonPones = `
+        <input type="radio" name="mascota" id=${dragonPon.nombre}/>
+        <label class="tarjeta-dragonpon" for=${dragonPon.nombre}>
+            <p>${dragonPon.nombre}</p>
+            <img src=${dragonPon.foto}>
+        </label>`
+
+        contenedorTarjetas.innerHTML += opcionDeDragonPones
+
+    })
+
     sectionReiniciar.style.display = 'none'
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     botonFuego.addEventListener('click', ataqueFuego)

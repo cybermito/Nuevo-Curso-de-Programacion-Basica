@@ -60,3 +60,4 @@ Pasos:
 43. Clases y Objetos de DragonPon.
 44. Arrays o arreglos en JS.
 45. Objetos vs Arrays (Usando arrays dentro de los objetos y arrays dentro de arrays)
+46. Ciclos: Manipulando el DOM con iteradores.
