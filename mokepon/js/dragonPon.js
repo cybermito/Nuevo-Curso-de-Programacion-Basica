@@ -11,11 +11,6 @@ const botonTierra = document.getElementById('btn-tierra')
 const botonReiniciar = document.getElementById('btn-reiniciar')
 
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
-const inputRedDragon = document.getElementById('redDragon')
-const inputGreyDragon = document.getElementById('greyDragon')
-const inputPinkDragon = document.getElementById('pinkDragon')
-const inputIntelecDragon = document.getElementById('intelecDragon')
-const inputPyDragon = document.getElementById('pyDragon')
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
@@ -32,6 +27,12 @@ const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 let dragonPones = []
 let opcionDeDragonPones
+let inputRedDragon
+let inputGreyDragon
+let inputBlueDragon
+let inputPinkDragon
+let inputIntelecDragon
+let inputPyDragon
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
@@ -85,7 +86,7 @@ function iniciarJuego(){
 
     dragonPones.forEach((dragonPon) => {
         opcionDeDragonPones = `
-        <input type="radio" name="mascota" id=${dragonPon.nombre}/>
+        <input type="radio" name="mascota" id=${dragonPon.nombre} />
         <label class="tarjeta-dragonpon" for=${dragonPon.nombre}>
             <p>${dragonPon.nombre}</p>
             <img src=${dragonPon.foto}>
@@ -94,6 +95,13 @@ function iniciarJuego(){
         contenedorTarjetas.innerHTML += opcionDeDragonPones
 
     })
+
+    inputRedDragon = document.getElementById('RedDragon')
+    inputGreyDragon = document.getElementById('GreyDragon')
+    inputBlueDragon = document.getElementById('BlueDragon')
+    // inputPinkDragon = document.getElementById('PinkDragon')
+    // inputIntelecDragon = document.getElementById('IntelecDragon')
+    // inputPyDragon = document.getElementById('PyDragon')
 
     sectionReiniciar.style.display = 'none'
     btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
@@ -108,17 +116,17 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarAtaque.style.display = 'flex'
 
     if (inputRedDragon.checked){
-        mascota = "RedDragon"
+        mascota = inputRedDragon.id
     }else if (inputGreyDragon.checked){
-        mascota = "GreyDragono"
+        mascota = inputGreyDragon.id
     }else if (inputBlueDragon.checked){
-        mascota = "BlueDragon"
-    }else if (inputPinkDragon.checked){
-        mascota = "PinkDragon"
-    }else if (inputIntelecDragon.checked){
-        mascota = "IntelecDragon"
-    }else if (inputPyDragon.checked){
-        mascota = "PyDragon"
+        mascota = inputBlueDragon.id
+    // }else if (inputPinkDragon.checked){
+    //     mascota = inputPinkDragon.id
+    // }else if (inputIntelecDragon.checked){
+    //     mascota = inputIntelecDragon.id
+    // }else if (inputPyDragon.checked){
+    //     mascota = inputPyDragon.id
     }else {
         mascota ="No seleccionaste ninguna mascota"
     }
@@ -134,7 +142,7 @@ function seleccionarMascotaEnemigo() {
     if (aleatorio == 1){
         spanMascotaEnemigo.innerHTML = 'RedDragon'
     }else if (mascotaAleatoria == 2) {
-        spanMascotaEnemigo.innerHTML = 'GreyDragono'
+        spanMascotaEnemigo.innerHTML = 'GreyDragon'
     }else if (mascotaAleatoria == 3) {
         spanMascotaEnemigo.innerHTML = 'BlueDrago'
     }else if (mascotaAleatoria == 4) {
