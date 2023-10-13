@@ -138,20 +138,9 @@ function seleccionarMascotaJugador() {
 }
 
 function seleccionarMascotaEnemigo() {
-    let mascotaAleatoria = aleatorio(1,6)
-    if (aleatorio == 1){
-        spanMascotaEnemigo.innerHTML = 'RedDragon'
-    }else if (mascotaAleatoria == 2) {
-        spanMascotaEnemigo.innerHTML = 'GreyDragon'
-    }else if (mascotaAleatoria == 3) {
-        spanMascotaEnemigo.innerHTML = 'BlueDrago'
-    }else if (mascotaAleatoria == 4) {
-        spanMascotaEnemigo.innerHTML = 'PinkDragon'
-    }else if (mascotaAleatoria == 5) {
-        spanMascotaEnemigo.innerHTML = 'IntelecDragon'
-    }else {
-        spanMascotaEnemigo.innerHTML = 'PyDragon'
-    }
+    let mascotaAleatoria = aleatorio(0, dragonPones.length - 1)
+
+    spanMascotaEnemigo.innerHTML = dragonPones[mascotaAleatoria].nombre
 }
 
 function ataqueFuego() {

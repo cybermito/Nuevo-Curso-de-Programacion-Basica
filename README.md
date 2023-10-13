@@ -63,3 +63,4 @@ Pasos:
 46. Ciclos: Manipulando el DOM con iteradores.
 47. Declaración lenta de variables.
 48. Una sola fuente de verdad.
+49. Mascotas aleatorias con Arrays.
