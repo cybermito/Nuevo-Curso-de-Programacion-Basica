@@ -4,6 +4,7 @@ Archivos creados en el nuevo curso de programación básica con html, css y java
 Nota: Con META/Windows + . se abre la ventana de emojis de KDE Plasma.
 
 Pasos:
+
 ## Fundamentos de Programación
 
 1. Crear tu primer sitio web
@@ -14,11 +15,12 @@ Pasos:
 6. Algoritmo del juego "Piedra, papel o tijera" (Variables y condiciones)
 7. Algoritmo avanzado del juego "Piedra, papel o Tijera"
 8. Creando la parte aleatoria para la elección del PC.
-    8.1. Reto reducir líneas de código para mejorar el programa.
+   8.1. Reto reducir líneas de código para mejorar el programa.
 9. Refactor del código usando funciones
 10. Ciclos
 11. Archivos HTML y Javascript. Estructura del proyecto y estructura de archivos.
 12. ¿Qué es el DOM
+
 ## Desarrollando un juego con HTML y Javascript
 
 13. Maquetación con HTML
@@ -27,15 +29,15 @@ Pasos:
 16. Escuchando con JS
 17. addEventListener
 18. Manipulación del DOM
-20. Enemigos Aleatorios
-21. Ataques en Javascript (Jugador y aleatorio Enemigo)
-22. Imprimiendo los ataques seleccionados (Jugador y Enemigo)
-23. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
-24. Tablas de verdad (AND, OR, NOT, XOR)
-25. Creando el contador de Vidas.
-26. Revisando quién ganó el juego.
-27. Reiniciando el juego.
-28. Ocultando elementos HTML con JS para mejorar la UX del juego.
+19. Enemigos Aleatorios
+20. Ataques en Javascript (Jugador y aleatorio Enemigo)
+21. Imprimiendo los ataques seleccionados (Jugador y Enemigo)
+22. Imprimiendo el estado de la batalla en al sección mensajes (Ganaste, Empataste o Perdiste)
+23. Tablas de verdad (AND, OR, NOT, XOR)
+24. Creando el contador de Vidas.
+25. Revisando quién ganó el juego.
+26. Reiniciando el juego.
+27. Ocultando elementos HTML con JS para mejorar la UX del juego.
 
 ## Estilos CSS
 
@@ -52,7 +54,7 @@ Pasos:
 38. Responsive Desing.
 39. Detalles Finales, Pseudo-Clases.
 
-    ## Optimización del código.
+## Optimización del código
 
 40. Revisión del código.
 41. Don't Repeat Yourself (DRY).
