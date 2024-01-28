@@ -28,6 +28,7 @@ const contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
 let dragonPones = [];
 let opcionDeDragonPones;
+let mascotaJugador;
 let inputRedDragon;
 let inputGreyDragon;
 let inputBlueDragon;
@@ -116,11 +117,11 @@ function seleccionarMascotaJugador() {
   sectionSeleccionarAtaque.style.display = "flex";
 
   if (inputRedDragon.checked) {
-    mascota = inputRedDragon.id;
+    mascotaJugador = inputRedDragon.id;
   } else if (inputGreyDragon.checked) {
-    mascota = inputGreyDragon.id;
+    mascotaJugador = inputGreyDragon.id;
   } else if (inputBlueDragon.checked) {
-    mascota = inputBlueDragon.id;
+    mascotaJugador = inputBlueDragon.id;
     // }else if (inputPinkDragon.checked){
     //     mascota = inputPinkDragon.id
     // }else if (inputIntelecDragon.checked){
@@ -128,13 +129,27 @@ function seleccionarMascotaJugador() {
     // }else if (inputPyDragon.checked){
     //     mascota = inputPyDragon.id
   } else {
-    mascota = "No seleccionaste ninguna mascota";
+    mascotaJugador = "No seleccionaste ninguna mascota";
   }
   //alert("Seleccionaste tu mascota: " + mascota )
-  spanMascotaJugador.innerHTML = mascota;
+  spanMascotaJugador.innerHTML = mascotaJugador;
 
+  //Llamamos a la función extraerAtaques para extraer los ataques de la mascota seleccionada.
+  extraerAtaques(mascotaJugador)
   //Llamamos a la función seleccionarMascotaEnemigo para sacar la mascota del enemigo.
   seleccionarMascotaEnemigo();
+}
+
+function extraerAtaques(mascotaJugador){
+ let ataques;
+
+  for (let i = 0; i < dragonPones.length; i++){
+    if (mascotaJugador === dragonPones[i].nombre) {
+      ataques = dragonPones[i].ataque;
+    }
+  }
+  //console.log(ataques);
+  mostrarAtaques(ataques);
 }
 
 function seleccionarMascotaEnemigo() {
