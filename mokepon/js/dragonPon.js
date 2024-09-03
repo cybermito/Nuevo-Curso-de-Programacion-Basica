@@ -5,9 +5,6 @@ const sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
 const sectionReiniciar = document.getElementById("reiniciar");
 const btnMascotaJugador = document.getElementById("btn-mascota");
 //Iniciamos las variables de los escuchadores para los distintos botones que vamos a usar.
-const botonFuego = document.getElementById("btn-fuego");
-const botonAgua = document.getElementById("btn-agua");
-const botonTierra = document.getElementById("btn-tierra");
 const botonReiniciar = document.getElementById("btn-reiniciar");
 
 const sectionSeleccionarMascota = document.getElementById(
@@ -25,6 +22,7 @@ const sectionMensajes = document.getElementById("resultado");
 const ataquesDelJugador = document.getElementById("ataques-del-jugador");
 const ataquesDelEnemigo = document.getElementById("ataques-del-enemigo");
 const contenedorTarjetas = document.getElementById("contenedorTarjetas");
+const contenedorAtaques = document.getElementById("contenedorAtaques");
 
 let dragonPones = [];
 let opcionDeDragonPones;
@@ -37,6 +35,10 @@ let inputIntelecDragon;
 let inputPyDragon;
 let ataqueJugador;
 let ataqueEnemigo;
+let ataquesDragonPon;
+let botonFuego;
+let botonAgua;
+let botonTierra;
 let vidasJugador = 3;
 let vidasEnemigo = 3;
 
@@ -54,27 +56,27 @@ let greyDragon = new DragonPon("GreyDragon", "./img/GreyDragon.png", 5);
 let blueDragon = new DragonPon("BlueDragon", "./img/BlueDragon.png", 5);
 
 redDragon.ataque.push(
-  { nombre: "Fuego", id: "btn-fuego" },
-  { nombre: "Fuego", id: "btn-fuego" },
-  { nombre: "Fuego", id: "btn-fuego" },
-  { nombre: "Agua", id: "btn-agua" },
-  { nombre: "Tierra", id: "btn-tierra" }
+  { nombre: "Fuego", id: "btn-fuego", foto: "img/simbol-fuego.png" },
+  { nombre: "Fuego", id: "btn-fuego", foto: "img/simbol-fuego.png" },
+  { nombre: "Fuego", id: "btn-fuego", foto: "img/simbol-fuego.png" },
+  { nombre: "Agua", id: "btn-agua", foto: "img/simbol-agua.png" },
+  { nombre: "Tierra", id: "btn-tierra", foto: "img/simbol-tierra.png" }
 );
 
 blueDragon.ataque.push(
-  { nombre: "Agua", id: "btn-fuego" },
-  { nombre: "Agua", id: "btn-fuego" },
-  { nombre: "Agua", id: "btn-fuego" },
-  { nombre: "Fuego", id: "btn-agua" },
-  { nombre: "Tierra", id: "btn-tierra" }
+  { nombre: "Agua", id: "btn-agua", foto: "img/simbol-agua.png" },
+  { nombre: "Agua", id: "btn-agua", foto: "img/simbol-agua.png" },
+  { nombre: "Agua", id: "btn-agua", foto: "img/simbol-agua.png" },
+  { nombre: "Fuego", id: "btn-fuego", foto: "img/simbol-fuego.png" },
+  { nombre: "Tierra", id: "btn-tierra", foto: "img/simbol-tierra.png" }
 );
 
 greyDragon.ataque.push(
-  { nombre: "Tierra", id: "btn-fuego" },
-  { nombre: "Tierra", id: "btn-fuego" },
-  { nombre: "Tierra", id: "btn-fuego" },
-  { nombre: "Agua", id: "btn-agua" },
-  { nombre: "Fuego", id: "btn-tierra" }
+  { nombre: "Tierra", id: "btn-tierra", foto: "img/simbol-tierra.png" },
+  { nombre: "Tierra", id: "btn-tierra", foto: "img/simbol-tierra.png" },
+  { nombre: "Tierra", id: "btn-tierra", foto: "img/simbol-tierra.png" },
+  { nombre: "Agua", id: "btn-agua", foto: "img/simbol-agua.png" },
+  { nombre: "Fuego", id: "btn-fuego", foto: "img/simbol-fuego.png" }
 );
 
 dragonPones.push(redDragon, greyDragon, blueDragon);
@@ -103,12 +105,8 @@ function iniciarJuego() {
   // inputPinkDragon = document.getElementById('PinkDragon')
   // inputIntelecDragon = document.getElementById('IntelecDragon')
   // inputPyDragon = document.getElementById('PyDragon')
-
   sectionReiniciar.style.display = "none";
   btnMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
-  botonFuego.addEventListener("click", ataqueFuego);
-  botonAgua.addEventListener("click", ataqueAgua);
-  botonTierra.addEventListener("click", ataqueTierra);
   botonReiniciar.addEventListener("click", reiniciarJuego);
 }
 
@@ -141,7 +139,7 @@ function seleccionarMascotaJugador() {
 }
 
 function extraerAtaques(mascotaJugador){
- let ataques;
+  let ataques;
 
   for (let i = 0; i < dragonPones.length; i++){
     if (mascotaJugador === dragonPones[i].nombre) {
@@ -150,6 +148,27 @@ function extraerAtaques(mascotaJugador){
   }
   //console.log(ataques);
   mostrarAtaques(ataques);
+}
+
+function mostrarAtaques(ataques){
+
+  ataques.forEach((ataque) => {
+    ataquesDragonPon = `
+     <button id=${ataque.id} class="boton-de-ataque">
+        <p>${ataque.nombre}</p>
+        <img src=${ataque.foto} alt="Ataque ${ataque.nombre}" />
+      </button>
+      `
+      contenedorAtaques.innerHTML += ataquesDragonPon;
+  });
+
+  botonFuego = document.getElementById("btn-fuego");
+  botonAgua = document.getElementById("btn-agua");
+  botonTierra = document.getElementById("btn-tierra");
+
+  botonFuego.addEventListener("click", ataqueFuego);
+  botonAgua.addEventListener("click", ataqueAgua);
+  botonTierra.addEventListener("click", ataqueTierra);
 }
 
 function seleccionarMascotaEnemigo() {

@@ -3,7 +3,7 @@
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-//Creamos la función eleccion de jugada para refactorizar el programa usando funciones.
+//Creamos la función elección de jugada para refactorizar el programa usando funciones.
 function eleccion(jugada){
     let resultado = ""
 
