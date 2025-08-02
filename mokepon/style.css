@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #041562;
+}
+
+.titulo {
+  font-family: "ADLaM Display", cursive;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+}
+
+#seleccionar-mascota {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitulo {
+  color: white;
+  font-size: 20px;
+}
+
+.tarjetas,
+.select-ataque {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tarjeta-dragonpon {
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #11468f;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.tarjeta-dragonpon img {
+  width: 80px;
+}
+
+#btn-mascota {
+  font-family: "Poppins", sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
+    de la configuración principal */
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+#ver-mapa{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#mapa {
+  margin-top: 10px;
+  border: 2px solid whitesmoke;
+}
+
+.botoneraMovimiento {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.mover{
+  background: none;
+  font-size: 60px;
+  margin: 2px;
+}
+
+.mover:hover{
+  cursor: pointer;
+}
+
+input {
+  display: none;
+}
+
+input:checked + label {
+  background-color: rgb(57, 110, 191);
+}
+
+#seleccionar-ataque {
+  margin: 50px auto;
+  /* display: flex; Comentamos esta línea ya que es ejecutada en el script JS */
+  flex-direction: column;
+  align-items: center;
+}
+
+.boton-de-ataque {
+  font-family: "Poppins", sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
+    de la configuración principal */
+  width: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #11468f;
+  border-radius: 20px;
+  border-color: transparent;
+  color: white;
+}
+
+.boton-de-ataque img {
+  height: 50px;
+}
+
+#mensajes {
+  width: 280px;
+  background: #eeeeee;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#btn-reiniciar {
+  border: transparent;
+  color: #11468f;
+  font-family: "Poppins", sans-serif;
+}
+
+.ataques {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  /* text-align: center; */
+  padding: 10px;
+  margin-top: 20px;
+}
+.ataques-jugador,
+.ataques-enemigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+/* @media (max-width: 420px){
+    .tarjetas .select-ataque{
+        flex-direction: column;  Esta línea la comento ya que uso flex-wrap: wrap que me ubica
+        un elemento debajo del otro a medida que no van entrando en pantalla.
+    }
+
+} */
