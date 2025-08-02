@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@300&display=swap');
 
 * {
   margin: 0;
@@ -7,12 +7,12 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #041562;
 }
 
 .titulo {
-  font-family: "ADLaM Display", cursive;
+  font-family: 'ADLaM Display', cursive;
   text-align: center;
   color: white;
   font-size: 32px;
@@ -57,7 +57,7 @@ body {
 }
 
 #btn-mascota {
-  font-family: "Poppins", sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
+  font-family: 'Poppins', sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
     de la configuración principal */
   margin-top: 30px;
   width: 200px;
@@ -68,7 +68,7 @@ body {
   color: white;
 }
 
-#ver-mapa{
+#ver-mapa {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,13 +85,13 @@ body {
   margin-top: 10px;
 }
 
-.mover{
+.mover {
   background: none;
   font-size: 60px;
   margin: 2px;
 }
 
-.mover:hover{
+.mover:hover {
   cursor: pointer;
 }
 
@@ -111,7 +111,7 @@ input:checked + label {
 }
 
 .boton-de-ataque {
-  font-family: "Poppins", sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
+  font-family: 'Poppins', sans-serif; /* En los botones hay que especificar la fuente ya que no la toma
     de la configuración principal */
   width: 150px;
   padding: 10px;
@@ -140,7 +140,7 @@ input:checked + label {
 #btn-reiniciar {
   border: transparent;
   color: #11468f;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .ataques {

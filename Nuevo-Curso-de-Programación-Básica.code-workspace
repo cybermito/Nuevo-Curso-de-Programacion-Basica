@@ -4,14 +4,5 @@
 			"path": "."
 		}
 	],
-	"settings": {
-<<<<<<< HEAD
-		"cSpell.language": "en,es-ES,es",
-		"cSpell.words": [
-			"refactorizar"
-		]
-=======
-		"cSpell.language": "en,es-ES,es"
->>>>>>> cb2a10b17027cb8443d18b7bf00eb26d5eae2f72
-	}
+	"settings": {}
 }

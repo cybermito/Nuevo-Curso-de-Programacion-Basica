@@ -1,33 +1,33 @@
-// alert("Hola, mundo JS")
+// alert("Hola, mundo JS");
 
 //Declaración variables globales
-const sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
-const sectionReiniciar = document.getElementById("reiniciar");
-const btnMascotaJugador = document.getElementById("btn-mascota");
+const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque');
+const sectionReiniciar = document.getElementById('reiniciar');
+const btnMascotaJugador = document.getElementById('btn-mascota');
 //Iniciamos las variables de los escuchadores para los distintos botones que vamos a usar.
-const botonReiniciar = document.getElementById("btn-reiniciar");
+const botonReiniciar = document.getElementById('btn-reiniciar');
 
 const sectionSeleccionarMascota = document.getElementById(
-  "seleccionar-mascota"
+  'seleccionar-mascota'
 );
-const spanMascotaJugador = document.getElementById("mascota-jugador");
+const spanMascotaJugador = document.getElementById('mascota-jugador');
 
-const spanMascotaEnemigo = document.getElementById("mascota-enemigo");
+const spanMascotaEnemigo = document.getElementById('mascota-enemigo');
 
 //const spanVidasJugador = document.getElementById("vidas-jugador");
 //const spanVidasEnemigo = document.getElementById("vidas-enemigo");
 
-const spanVictoriasJugador = document.getElementById("victorias-jugador");
-const spanVictoriasEnemigo = document.getElementById("victorias-enemigo");
+const spanVictoriasJugador = document.getElementById('victorias-jugador');
+const spanVictoriasEnemigo = document.getElementById('victorias-enemigo');
 
 //Seleccionamos el elemento que va a contener el nuevo elemento HTML
-const sectionMensajes = document.getElementById("resultado");
-const ataquesDelJugador = document.getElementById("ataques-del-jugador");
-const ataquesDelEnemigo = document.getElementById("ataques-del-enemigo");
-const contenedorTarjetas = document.getElementById("contenedorTarjetas");
-const contenedorAtaques = document.getElementById("contenedorAtaques");
-const sectionVerMapa = document.getElementById("ver-mapa");
-const mapa = document.getElementById("mapa");
+const sectionMensajes = document.getElementById('resultado');
+const ataquesDelJugador = document.getElementById('ataques-del-jugador');
+const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo');
+const contenedorTarjetas = document.getElementById('contenedorTarjetas');
+const contenedorAtaques = document.getElementById('contenedorAtaques');
+const sectionVerMapa = document.getElementById('ver-mapa');
+const mapa = document.getElementById('mapa');
 
 let dragonPones = [];
 let opcionDeDragonPones;
@@ -50,7 +50,7 @@ let botonesAtaques = [];
 //let vidasEnemigo = 3;
 let victoriasJugador = 0;
 let victoriasEnemigo = 0;
-let lienzo = mapa.getContext("2d"); //Obtenemos el contexto del canvas para poder dibujar, en este caso 2D
+let lienzo = mapa.getContext('2d'); //Obtenemos el contexto del canvas para poder dibujar, en este caso 2D
 
 //Funciones y Clases
 class DragonPon {
@@ -61,38 +61,38 @@ class DragonPon {
     this.ataque = [];
     this.x = 20; //Posición x dragonPon por defecto
     this.y = 40; //Posición y dragonPon por defecto
-    this.ancho = 80; //Tamaño por defecto del dragonPon
-    this.alto = 80;
+    this.ancho = 60; //Tamaño por defecto del dragonPon
+    this.alto = 60;
   }
 }
 
 //Creamos los personajes/dragones
-let redDragon = new DragonPon("RedDragon", "img/RedDragon.png", 5);
-let greyDragon = new DragonPon("GreyDragon", "img/GreyDragon.png", 5);
-let blueDragon = new DragonPon("BlueDragon", "img/BlueDragon.png", 5);
+let redDragon = new DragonPon('RedDragon', 'img/RedDragon.png', 5);
+let greyDragon = new DragonPon('GreyDragon', 'img/GreyDragon.png', 5);
+let blueDragon = new DragonPon('BlueDragon', 'img/BlueDragon.png', 5);
 //Les asignamos los ataques
 redDragon.ataque.push(
-  { nombre: "Fuego", id: "btn-fuego", foto: "img/symbol-fuego.png" },
-  { nombre: "Fuego", id: "btn-fuego", foto: "img/symbol-fuego.png" },
-  { nombre: "Fuego", id: "btn-fuego", foto: "img/symbol-fuego.png" },
-  { nombre: "Agua", id: "btn-agua", foto: "img/symbol-agua.png" },
-  { nombre: "Tierra", id: "btn-tierra", foto: "img/symbol-tierra.png" }
+  { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' },
+  { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' },
+  { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' },
+  { nombre: 'Agua', id: 'btn-agua', foto: 'img/symbol-agua.png' },
+  { nombre: 'Tierra', id: 'btn-tierra', foto: 'img/symbol-tierra.png' }
 );
 
 blueDragon.ataque.push(
-  { nombre: "Agua", id: "btn-agua", foto: "img/symbol-agua.png" },
-  { nombre: "Agua", id: "btn-agua", foto: "img/symbol-agua.png" },
-  { nombre: "Agua", id: "btn-agua", foto: "img/symbol-agua.png" },
-  { nombre: "Fuego", id: "btn-fuego", foto: "img/symbol-fuego.png" },
-  { nombre: "Tierra", id: "btn-tierra", foto: "img/symbol-tierra.png" }
+  { nombre: 'Agua', id: 'btn-agua', foto: 'img/symbol-agua.png' },
+  { nombre: 'Agua', id: 'btn-agua', foto: 'img/symbol-agua.png' },
+  { nombre: 'Agua', id: 'btn-agua', foto: 'img/symbol-agua.png' },
+  { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' },
+  { nombre: 'Tierra', id: 'btn-tierra', foto: 'img/symbol-tierra.png' }
 );
 
 greyDragon.ataque.push(
-  { nombre: "Tierra", id: "btn-tierra", foto: "img/symbol-tierra.png" },
-  { nombre: "Tierra", id: "btn-tierra", foto: "img/symbol-tierra.png" },
-  { nombre: "Tierra", id: "btn-tierra", foto: "img/symbol-tierra.png" },
-  { nombre: "Agua", id: "btn-agua", foto: "img/symbol-agua.png" },
-  { nombre: "Fuego", id: "btn-fuego", foto: "img/symbol-fuego.png" }
+  { nombre: 'Tierra', id: 'btn-tierra', foto: 'img/symbol-tierra.png' },
+  { nombre: 'Tierra', id: 'btn-tierra', foto: 'img/symbol-tierra.png' },
+  { nombre: 'Tierra', id: 'btn-tierra', foto: 'img/symbol-tierra.png' },
+  { nombre: 'Agua', id: 'btn-agua', foto: 'img/symbol-agua.png' },
+  { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' }
 );
 
 dragonPones.push(redDragon, greyDragon, blueDragon);
@@ -102,8 +102,8 @@ function aleatorio(min, max) {
 }
 
 function iniciarJuego() {
-  sectionSeleccionarAtaque.style.display = "none";
-  sectionVerMapa.style.display = "none";
+  sectionSeleccionarAtaque.style.display = 'none';
+  sectionVerMapa.style.display = 'none';
 
   dragonPones.forEach((dragonPon) => {
     opcionDeDragonPones = `
@@ -116,22 +116,22 @@ function iniciarJuego() {
     contenedorTarjetas.innerHTML += opcionDeDragonPones;
   });
 
-  inputRedDragon = document.getElementById("RedDragon");
-  inputGreyDragon = document.getElementById("GreyDragon");
-  inputBlueDragon = document.getElementById("BlueDragon");
+  inputRedDragon = document.getElementById('RedDragon');
+  inputGreyDragon = document.getElementById('GreyDragon');
+  inputBlueDragon = document.getElementById('BlueDragon');
   // inputPinkDragon = document.getElementById('PinkDragon')
   // inputIntelecDragon = document.getElementById('IntelecDragon')
   // inputPyDragon = document.getElementById('PyDragon')
-  sectionReiniciar.style.display = "none";
-  btnMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
-  botonReiniciar.addEventListener("click", reiniciarJuego);
+  sectionReiniciar.style.display = 'none';
+  btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
+  botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
 function seleccionarMascotaJugador() {
-  sectionSeleccionarMascota.style.display = "none";
+  sectionSeleccionarMascota.style.display = 'none';
   //sectionSeleccionarAtaque.style.display = "flex";
-  sectionVerMapa.style.display = "flex"; //Activamos el canvas para que se vea
-/*   let imagenRedDragon = new Image();
+  sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
+  /*   let imagenRedDragon = new Image();
   imagenRedDragon.src = redDragon.foto;
   lienzo.drawImage(
     imagenRedDragon,
@@ -158,34 +158,27 @@ function seleccionarMascotaJugador() {
     // }else if (inputPyDragon.checked){
     //     mascota = inputPyDragon.id
   } else {
-    mascotaJugador = "No seleccionaste ninguna mascota";
+    mascotaJugador = 'No seleccionaste ninguna mascota';
   }
   //alert("Seleccionaste tu mascota: " + mascota )
   spanMascotaJugador.innerHTML = mascotaJugador;
 
   //Llamamos a la función extraerAtaques para extraer los ataques de la mascota seleccionada.
-  extraerAtaques(mascotaJugador)
+  extraerAtaques(mascotaJugador);
   //Llamamos a la función seleccionarMascotaEnemigo para sacar la mascota del enemigo.
   seleccionarMascotaEnemigo();
 }
 
-function presentarMascotaJugador(imagenSrc){
-  
+function presentarMascotaJugador(imagenSrc) {
   let imagenDragon = new Image();
   imagenDragon.src = imagenSrc;
-  lienzo.drawImage(
-    imagenDragon,
-    20,
-    40,
-    80,
-    80,
-  );
+  lienzo.drawImage(imagenDragon, 20, 40, 80, 80);
 }
 
-function extraerAtaques(mascotaJugador){
+function extraerAtaques(mascotaJugador) {
   let ataques;
 
-  for (let i = 0; i < dragonPones.length; i++){
+  for (let i = 0; i < dragonPones.length; i++) {
     if (mascotaJugador === dragonPones[i].nombre) {
       ataques = dragonPones[i].ataque;
     }
@@ -194,75 +187,71 @@ function extraerAtaques(mascotaJugador){
   mostrarAtaques(ataques);
 }
 
-function mostrarAtaques(ataques){
-
+function mostrarAtaques(ataques) {
   ataques.forEach((ataque) => {
     ataquesDragonPon = `
      <button id=${ataque.id} class="boton-de-ataque">
         <p>${ataque.nombre}</p>
         <img src=${ataque.foto} alt="Ataque ${ataque.nombre}" />
       </button>
-      `
-      contenedorAtaques.innerHTML += ataquesDragonPon;
+      `;
+    contenedorAtaques.innerHTML += ataquesDragonPon;
   });
 
-  botonFuego = document.getElementById("btn-fuego");
-  botonAgua = document.getElementById("btn-agua");
-  botonTierra = document.getElementById("btn-tierra");
-  botonesAtaques = document.querySelectorAll(".boton-de-ataque");
+  botonFuego = document.getElementById('btn-fuego');
+  botonAgua = document.getElementById('btn-agua');
+  botonTierra = document.getElementById('btn-tierra');
+  botonesAtaques = document.querySelectorAll('.boton-de-ataque');
 
   /* botonFuego.addEventListener("click", ataqueFuego);
   botonAgua.addEventListener("click", ataqueAgua);
   botonTierra.addEventListener("click", ataqueTierra); */
 }
 
-function secuenciaAtaque(){
+function secuenciaAtaque() {
   botonesAtaques.forEach((boton) => {
     boton.addEventListener('click', (evento) => {
       //console.log(evento.currentTarget.id); //Obtenemos el elemento padre o elemento que tiene el listener
       //validamos el botón que hemos hecho click y añadimos este a la secuencia de ataques.
-      if (evento.currentTarget.id === "btn-fuego"){
-        ataqueJugador.push("Fuego");
+      if (evento.currentTarget.id === 'btn-fuego') {
+        ataqueJugador.push('Fuego');
         //console.log(ataqueJugador);
-        boton.style.background = "#112f58";
+        boton.style.background = '#112f58';
         boton.disabled = true;
-      } else if (evento.currentTarget.id === "btn-agua") {
-        ataqueJugador.push("Agua");
+      } else if (evento.currentTarget.id === 'btn-agua') {
+        ataqueJugador.push('Agua');
         //console.log(ataqueJugador);
-        boton.style.background = "#112f58";
+        boton.style.background = '#112f58';
         boton.disabled = true;
       } else {
-        ataqueJugador.push("Tierra");
+        ataqueJugador.push('Tierra');
         //console.log(ataqueJugador);
-        boton.style.background = "#112f58";
+        boton.style.background = '#112f58';
         boton.disabled = true;
       }
 
       //Validamos si hemos creado ya la secuencia completa de ataques para generar
       //la secuencia del Enemigo.
-      if (ataqueJugador.length === 5){
+      if (ataqueJugador.length === 5) {
         ataqueAleatorioEnemigo();
       }
-      
     });
-
   });
-  
 }
 
 function seleccionarMascotaEnemigo() {
   //Generamos la mascota del Enemigo de forma aleatoria con nuestro array de dragonPones
   let mascotaAleatoria = aleatorio(0, dragonPones.length - 1);
- 
+
   //Mostramos el nombre en el HTML
   spanMascotaEnemigo.innerHTML = dragonPones[mascotaAleatoria].nombre;
   //Guardamos los ataques correspondientes a la mascota elegida. Esta queda guardada en un Array de objetos
-  ataquesDragonPonEnemigo = dragonPones[mascotaAleatoria].ataque
+  ataquesDragonPonEnemigo = dragonPones[mascotaAleatoria].ataque;
   //console.log(ataquesDragonPonEnemigo);
   //Recorremos el array de ataques para tomar solamente el nombre y generar la secuencia de ataque del Enemigo
   ataquesDragonPonEnemigo.forEach((ataqueNombre) => {
     //console.log(ataqueNombre.nombre);
-    ataqueEnemigo.push(ataqueNombre.nombre);//Ya tenemos la secuencia ordenada
+    ataqueEnemigo.push(ataqueNombre.nombre); //Ya tenemos la secuencia ordenada
     //console.log(ataqueEnemigo);
   });
 
@@ -286,7 +275,7 @@ function ataqueTierra() {
  */
 
 function ataqueAleatorioEnemigo() {
-/*   let ataqueAleatorio = aleatorio(1, 3);
+  /*   let ataqueAleatorio = aleatorio(1, 3);
 
   if (ataqueAleatorio == 1) {
     ataqueEnemigo = "Fuego";
@@ -308,46 +297,43 @@ function ataqueAleatorioEnemigo() {
   ataqueEnemigo = Array.from(ataqueEnemigoAux); //Esto genera una copia integra del array, se podría haber usado
   //la forma ...spread, el método .concat y otras formas de hacerlo más completas. Revisar en profundidad como
   //copiar un array para ver las diferencias entre asignar y copiar.
-  //console.log(ataqueEnemigo);  
+  //console.log(ataqueEnemigo);
   iniciarCombate();
   //combate();
 }
 
-function iniciarCombate(){
-
-  if ((ataqueJugador.length === 5) && (ataqueEnemigo.length === 5)){
-    console.log("Iniciando el combate");
+function iniciarCombate() {
+  if (ataqueJugador.length === 5 && ataqueEnemigo.length === 5) {
+    console.log('Iniciando el combate');
     combate();
   } else {
-    console.log("No inicia el combate");
+    console.log('No inicia el combate');
   }
 }
 
 function combate() {
-
   spanVictoriasJugador.innerHTML = victoriasJugador;
   spanVictoriasEnemigo.innerHTML = victoriasEnemigo;
 
   for (let i = 0; i < ataqueJugador.length; i++) {
     //console.log(ataqueJugador[i]);
     //console.log(ataqueEnemigo[i]);
-    if (ataqueJugador[i] === ataqueEnemigo[i]){
-      crearMensaje("EMPATE", ataqueJugador[i], ataqueEnemigo[i]);
+    if (ataqueJugador[i] === ataqueEnemigo[i]) {
+      crearMensaje('EMPATE', ataqueJugador[i], ataqueEnemigo[i]);
     } else if (
-      (ataqueJugador[i] === "Fuego" && ataqueEnemigo[i] === "Tierra") ||
-      (ataqueJugador[i] === "Agua" && ataqueEnemigo[i] === "Fuego") ||
-      (ataqueJugador[i] === "Tierra" && ataqueEnemigo[i] === "Agua")
+      (ataqueJugador[i] === 'Fuego' && ataqueEnemigo[i] === 'Tierra') ||
+      (ataqueJugador[i] === 'Agua' && ataqueEnemigo[i] === 'Fuego') ||
+      (ataqueJugador[i] === 'Tierra' && ataqueEnemigo[i] === 'Agua')
     ) {
-      crearMensaje("GANASTE", ataqueJugador[i], ataqueEnemigo[i]);
+      crearMensaje('GANASTE', ataqueJugador[i], ataqueEnemigo[i]);
       victoriasJugador++;
       spanVictoriasJugador.innerHTML = victoriasJugador;
     } else {
-      crearMensaje("PERDISTE", ataqueJugador[i], ataqueEnemigo[i]);
+      crearMensaje('PERDISTE', ataqueJugador[i], ataqueEnemigo[i]);
       victoriasEnemigo++;
       spanVictoriasEnemigo.innerHTML = victoriasEnemigo;
     }
     revisarVictorias();
-    
   }
 
   /* spanVidasJugador.innerHTML = vidasJugador;
@@ -378,19 +364,18 @@ function revisarVictorias() {
     crearMensajeFinal("Oh, lo siento ¡Perdiste! :(");
   } */
   if (victoriasJugador > victoriasEnemigo) {
-    crearMensajeFinal("FELICIDADES, ¡Ganaste! :)");
+    crearMensajeFinal('FELICIDADES, ¡Ganaste! :)');
   } else if (victoriasJugador < victoriasEnemigo) {
-    crearMensajeFinal("Oh, lo siento ¡Perdiste! :(");
+    crearMensajeFinal('Oh, lo siento ¡Perdiste! :(');
   } else {
-    crearMensajeFinal("Hubo Empate");
+    crearMensajeFinal('Hubo Empate');
   }
-
 }
 
 function crearMensaje(resultadoCombate, ataqueJugador, ataqueEnemigo) {
   //Creamos el elemento HTML
-  let nuevoAtaqueDelJugador = document.createElement("p");
-  let nuevoAtaqueDelEnemigo = document.createElement("p");
+  let nuevoAtaqueDelJugador = document.createElement('p');
+  let nuevoAtaqueDelEnemigo = document.createElement('p');
 
   sectionMensajes.innerHTML = resultadoCombate;
   nuevoAtaqueDelJugador.innerHTML = ataqueJugador;
@@ -413,11 +398,11 @@ function crearMensajeFinal(resultadoFinal) {
   /* botonFuego.disabled = true;
   botonAgua.disabled = true;
   botonTierra.disabled = true; */
-  sectionReiniciar.style.display = "block";
+  sectionReiniciar.style.display = 'block';
 }
 
 function reiniciarJuego() {
   location.reload();
 }
 
-window.addEventListener("load", iniciarJuego);
+window.addEventListener('load', iniciarJuego);
