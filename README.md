@@ -7,6 +7,8 @@ Pasos:
 
 ## Fundamentos de Programación
 
+## Fundamentos de Programación
+
 1. Crear tu primer sitio web
 2. Sitios web con HTML
 3. Estructura HTML
@@ -15,6 +17,7 @@ Pasos:
 6. Algoritmo del juego "Piedra, papel o tijera" (Variables y condiciones)
 7. Algoritmo avanzado del juego "Piedra, papel o Tijera"
 8. Creando la parte aleatoria para la elección del PC.
+   8.1. Reto reducir líneas de código para mejorar el programa.
    8.1. Reto reducir líneas de código para mejorar el programa.
 9. Refactor del código usando funciones
 10. Ciclos
