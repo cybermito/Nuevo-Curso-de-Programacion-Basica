@@ -65,6 +65,7 @@ let botonesAtaques = [];
 let victoriasJugador = 0;
 let victoriasEnemigo = 0;
 let lienzo = mapa.getContext('2d'); //Obtenemos el contexto del canvas para poder dibujar, en este caso 2D
+let intervalo; //Para ajustar la frecuencia de refresco/repintar el canva.
 
 //Funciones y Clases
 class DragonPon {
@@ -77,6 +78,8 @@ class DragonPon {
     this.y = 40; //Posición y dragonPon por defecto
     this.ancho = 60; //Tamaño por defecto del dragonPon
     this.alto = 60;
+    this.velocidadX = 0; //Velocidad de movimiento en X
+    this.velocidadY = 0; //Velocidad de movimiento en Y
   }
 }
 
@@ -145,6 +148,8 @@ function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = 'none';
   //sectionSeleccionarAtaque.style.display = "flex";
   sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
+  //intervalo = setInterval(() => presentarMascotaJugador('imagenes/dragonRojo.png'), 50);
+  intervalo = setInterval(() => presentarMascotaJugador(redDragon.foto), 50); //Ejecutamos la función indicada cada 50ms
   /*   let imagenRedDragon = new Image();
   imagenRedDragon.src = redDragon.foto;
   lienzo.drawImage(
@@ -184,6 +189,8 @@ function seleccionarMascotaJugador() {
 }
 
 function presentarMascotaJugador(imagenSrc) {
+  redDragon.x += redDragon.velocidadX; //Sumamos a la posición actual del personaje la velocidad indicada.
+  redDragon.y += redDragon.velocidadY;
   lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height);
   let imagenDragon = new Image();
   imagenDragon.src = imagenSrc;
@@ -197,34 +204,41 @@ function presentarMascotaJugador(imagenSrc) {
 }
 
 function moverArriba() {
-  console.log('Mover Arriba');
+  redDragon.velocidadY = -5;
+  /* console.log('Mover Arriba');
   redDragon.y -= 5;
   presentarMascotaJugador(redDragon.foto);
-  console.log('Posición Y ' + redDragon.y);
+  console.log('Posición Y ' + redDragon.y); */
 }
 
 function moverAbajo() {
-  console.log('Mover Abajo');
+  redDragon.velocidadY = 5;
+  /* console.log('Mover Abajo');
   redDragon.y += 5;
   presentarMascotaJugador(redDragon.foto);
-  console.log('Posición Y ' + redDragon.y);
+  console.log('Posición Y ' + redDragon.y); */
 }
 
 function moverIzquierda() {
-  console.log('Mover Izquierda');
+  redDragon.velocidadX = -5;
+  /* console.log('Mover Izquierda');
   redDragon.x -= 5;
   presentarMascotaJugador(redDragon.foto);
-  console.log('Posición X ' + redDragon.y);
+  console.log('Posición X ' + redDragon.y); */
 }
 
 function moverDerecha() {
-  console.log('Mover Derecha');
+  redDragon.velocidadX = 5;
+  /* console.log('Mover Derecha');
   redDragon.x += 5;
   presentarMascotaJugador(redDragon.foto);
-  console.log('Posición X ' + redDragon.y);
+  console.log('Posición X ' + redDragon.y); */
 }
 
-function pararMovimiento() {}
+function pararMovimiento() {
+  redDragon.velocidadX = 0;
+  redDragon.velocidadY = 0;
+}
 
 function extraerAtaques(mascotaJugador) {
   let ataques;
