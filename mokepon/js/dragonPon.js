@@ -29,6 +29,20 @@ const contenedorAtaques = document.getElementById('contenedorAtaques');
 const sectionVerMapa = document.getElementById('ver-mapa');
 const mapa = document.getElementById('mapa');
 
+//Cargamos los botones de movimiento y le añadimos su listener para el movimiento
+const arriba = document.getElementById('arriba');
+const abajo = document.getElementById('abajo');
+const izquierda = document.getElementById('izquierda');
+const derecha = document.getElementById('derecha');
+arriba.addEventListener('mousedown', moverArriba);
+abajo.addEventListener('mousedown', moverAbajo);
+izquierda.addEventListener('mousedown', moverIzquierda);
+derecha.addEventListener('mousedown', moverDerecha);
+arriba.addEventListener('mouseup', pararMovimiento);
+abajo.addEventListener('mouseup', pararMovimiento);
+izquierda.addEventListener('mouseup', pararMovimiento);
+derecha.addEventListener('mouseup', pararMovimiento);
+
 let dragonPones = [];
 let opcionDeDragonPones;
 let mascotaJugador;
@@ -170,10 +184,47 @@ function seleccionarMascotaJugador() {
 }
 
 function presentarMascotaJugador(imagenSrc) {
+  lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height);
   let imagenDragon = new Image();
   imagenDragon.src = imagenSrc;
-  lienzo.drawImage(imagenDragon, 20, 40, 80, 80);
+  lienzo.drawImage(
+    imagenDragon,
+    redDragon.x,
+    redDragon.y,
+    redDragon.ancho,
+    redDragon.alto
+  );
 }
+
+function moverArriba() {
+  console.log('Mover Arriba');
+  redDragon.y -= 5;
+  presentarMascotaJugador(redDragon.foto);
+  console.log('Posición Y ' + redDragon.y);
+}
+
+function moverAbajo() {
+  console.log('Mover Abajo');
+  redDragon.y += 5;
+  presentarMascotaJugador(redDragon.foto);
+  console.log('Posición Y ' + redDragon.y);
+}
+
+function moverIzquierda() {
+  console.log('Mover Izquierda');
+  redDragon.x -= 5;
+  presentarMascotaJugador(redDragon.foto);
+  console.log('Posición X ' + redDragon.y);
+}
+
+function moverDerecha() {
+  console.log('Mover Derecha');
+  redDragon.x += 5;
+  presentarMascotaJugador(redDragon.foto);
+  console.log('Posición X ' + redDragon.y);
+}
+
+function pararMovimiento() {}
 
 function extraerAtaques(mascotaJugador) {
   let ataques;
