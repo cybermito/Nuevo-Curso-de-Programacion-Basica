@@ -83,4 +83,5 @@ Pasos:
 1. Introducción a canvas: dibujando con Javascript
 2. Moviendo a Capipepo hacia la derecha
 3. Movimiento hacia todas las direcciones
-4.
+4. Eventos de teclado para controlar personajes en juegos.
+5.
