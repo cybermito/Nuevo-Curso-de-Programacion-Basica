@@ -84,4 +84,5 @@ Pasos:
 2. Moviendo a Capipepo hacia la derecha
 3. Movimiento hacia todas las direcciones
 4. Eventos de teclado para controlar personajes en juegos.
-5.
+5. Pintar Fondos y Personajes en Canvas HTML
+6.

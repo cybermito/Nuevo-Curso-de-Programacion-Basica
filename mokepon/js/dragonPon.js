@@ -144,12 +144,18 @@ function iniciarJuego() {
   botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
+function iniciarMapa() {
+  //intervalo = setInterval(() => presentarMascotaJugador('imagenes/dragonRojo.png'), 50);
+  intervalo = setInterval(() => presentarMascotaJugador(redDragon.foto), 50); //Ejecutamos la función indicada cada 50ms
+  window.addEventListener('keydown', controlTeclado);
+  window.addEventListener('keyup', pararMovimiento);
+}
+
 function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = 'none';
   //sectionSeleccionarAtaque.style.display = "flex";
   sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
-  //intervalo = setInterval(() => presentarMascotaJugador('imagenes/dragonRojo.png'), 50);
-  intervalo = setInterval(() => presentarMascotaJugador(redDragon.foto), 50); //Ejecutamos la función indicada cada 50ms
+  iniciarMapa();
   /*   let imagenRedDragon = new Image();
   imagenRedDragon.src = redDragon.foto;
   lienzo.drawImage(
@@ -203,6 +209,7 @@ function presentarMascotaJugador(imagenSrc) {
   );
 }
 
+// Funciones para controlar el movimiento del personaje
 function moverArriba() {
   redDragon.velocidadY = -5;
   /* console.log('Mover Arriba');
@@ -235,10 +242,31 @@ function moverDerecha() {
   console.log('Posición X ' + redDragon.y); */
 }
 
+function controlTeclado(event) {
+  console.log(event.key);
+  switch (event.key) {
+    case 'ArrowUp':
+      moverArriba();
+      break;
+    case 'ArrowDown':
+      moverAbajo();
+      break;
+    case 'ArrowLeft':
+      moverIzquierda();
+      break;
+    case 'ArrowRight':
+      moverDerecha();
+      break;
+    default:
+      break;
+  }
+}
+
 function pararMovimiento() {
   redDragon.velocidadX = 0;
   redDragon.velocidadY = 0;
 }
+// Fin de las funciones que controlan el movimiento del personaje.
 
 function extraerAtaques(mascotaJugador) {
   let ataques;
