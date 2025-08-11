@@ -84,5 +84,8 @@ Pasos:
 2. Moviendo a Capipepo hacia la derecha
 3. Movimiento hacia todas las direcciones
 4. Eventos de teclado para controlar personajes en juegos.
-5. Pintar Fondos y Personajes en Canvas HTML
-6.
+5. Pintar Fondos y Personajes en Canvas HTML.
+6. Métodos de Clases en JS para Juegos Interactivos.
+7. Detección de colisiones en Videojuegos en Javascript.
+8. Programación de eventos y colisiones en un juego interactivo.
+9.

@@ -46,6 +46,7 @@ derecha.addEventListener('mouseup', pararMovimiento);
 let dragonPones = [];
 let opcionDeDragonPones;
 let mascotaJugador;
+let mascotaJugadorObjeto;
 let inputRedDragon;
 let inputGreyDragon;
 let inputBlueDragon;
@@ -66,20 +67,32 @@ let victoriasJugador = 0;
 let victoriasEnemigo = 0;
 let lienzo = mapa.getContext('2d'); //Obtenemos el contexto del canvas para poder dibujar, en este caso 2D
 let intervalo; //Para ajustar la frecuencia de refresco/repintar el canva.
+let mapaBackground = new Image();
+mapaBackground.src = './img/patio_castillo_2.jpg';
 
 //Funciones y Clases
 class DragonPon {
-  constructor(nombre, foto, vida) {
+  constructor(nombre, foto, vida, x = 10, y = 10) {
     this.nombre = nombre;
     this.foto = foto;
     this.vidas = vida;
     this.ataque = [];
-    this.x = 20; //Posición x dragonPon por defecto
-    this.y = 40; //Posición y dragonPon por defecto
-    this.ancho = 60; //Tamaño por defecto del dragonPon
-    this.alto = 60;
+    this.x = x; //Posición x dragonPon por defecto
+    this.y = y; //Posición y dragonPon por defecto
+    this.ancho = 120; //Tamaño por defecto del dragonPon
+    this.alto = 120;
     this.velocidadX = 0; //Velocidad de movimiento en X
     this.velocidadY = 0; //Velocidad de movimiento en Y
+  }
+
+  pintarDragonPon(imagenDragon) {
+    lienzo.drawImage(imagenDragon, this.x, this.y, this.ancho, this.alto);
+  }
+
+  pintarDragonPonEnemigo() {
+    let imagenDragon = new Image();
+    imagenDragon.src = this.foto;
+    lienzo.drawImage(imagenDragon, this.x, this.y, this.ancho, this.alto);
   }
 }
 
@@ -87,6 +100,7 @@ class DragonPon {
 let redDragon = new DragonPon('RedDragon', 'img/RedDragon.png', 5);
 let greyDragon = new DragonPon('GreyDragon', 'img/GreyDragon.png', 5);
 let blueDragon = new DragonPon('BlueDragon', 'img/BlueDragon.png', 5);
+
 //Les asignamos los ataques
 redDragon.ataque.push(
   { nombre: 'Fuego', id: 'btn-fuego', foto: 'img/symbol-fuego.png' },
@@ -113,6 +127,29 @@ greyDragon.ataque.push(
 );
 
 dragonPones.push(redDragon, greyDragon, blueDragon);
+
+//Creamos los personajes/dragones enemigos
+let redDragonEnemigo = new DragonPon(
+  'RedDragon',
+  'img/RedDragon.png',
+  5,
+  400,
+  10
+);
+let greyDragonEnemigo = new DragonPon(
+  'GreyDragon',
+  'img/GreyDragon.png',
+  5,
+  400,
+  170
+);
+let blueDragonEnemigo = new DragonPon(
+  'BlueDragon',
+  'img/BlueDragon.png',
+  5,
+  400,
+  330
+);
 
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -144,18 +181,10 @@ function iniciarJuego() {
   botonReiniciar.addEventListener('click', reiniciarJuego);
 }
 
-function iniciarMapa() {
-  //intervalo = setInterval(() => presentarMascotaJugador('imagenes/dragonRojo.png'), 50);
-  intervalo = setInterval(() => presentarMascotaJugador(redDragon.foto), 50); //Ejecutamos la función indicada cada 50ms
-  window.addEventListener('keydown', controlTeclado);
-  window.addEventListener('keyup', pararMovimiento);
-}
-
 function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = 'none';
   //sectionSeleccionarAtaque.style.display = "flex";
-  sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
-  iniciarMapa();
+
   /*   let imagenRedDragon = new Image();
   imagenRedDragon.src = redDragon.foto;
   lienzo.drawImage(
@@ -169,13 +198,11 @@ function seleccionarMascotaJugador() {
 
   if (inputRedDragon.checked) {
     mascotaJugador = inputRedDragon.id;
-    presentarMascotaJugador(redDragon.foto);
   } else if (inputGreyDragon.checked) {
     mascotaJugador = inputGreyDragon.id;
-    presentarMascotaJugador(greyDragon.foto);
   } else if (inputBlueDragon.checked) {
     mascotaJugador = inputBlueDragon.id;
-    presentarMascotaJugador(blueDragon.foto);
+
     // }else if (inputPinkDragon.checked){
     //     mascota = inputPinkDragon.id
     // }else if (inputIntelecDragon.checked){
@@ -187,31 +214,55 @@ function seleccionarMascotaJugador() {
   }
   //alert("Seleccionaste tu mascota: " + mascota )
   spanMascotaJugador.innerHTML = mascotaJugador;
-
+  mascotaJugadorObjeto = obtenerPersonaje(mascotaJugador);
+  pintarCanvas(mascotaJugadorObjeto.foto);
   //Llamamos a la función extraerAtaques para extraer los ataques de la mascota seleccionada.
   extraerAtaques(mascotaJugador);
+
   //Llamamos a la función seleccionarMascotaEnemigo para sacar la mascota del enemigo.
-  seleccionarMascotaEnemigo();
+  //seleccionarMascotaEnemigo(); La comentamos para la selección manual
+  //Cargamos el mapa una vez obtenidos todas las propiedades y métodos de nuestro personaje.
+  sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
+  iniciarMapa();
 }
 
-function presentarMascotaJugador(imagenSrc) {
-  redDragon.x += redDragon.velocidadX; //Sumamos a la posición actual del personaje la velocidad indicada.
-  redDragon.y += redDragon.velocidadY;
+function iniciarMapa() {
+  //Indicamos el tamaño del canvas / mapa.
+  mapa.width = 640;
+  mapa.height = 480;
+
+  //intervalo = setInterval(() => presentarMascotaJugador('imagenes/dragonRojo.png'), 50);
+  intervalo = setInterval(() => pintarCanvas(mascotaJugadorObjeto.foto), 50); //Ejecutamos la función indicada cada 50ms
+  window.addEventListener('keydown', controlTeclado);
+  window.addEventListener('keyup', pararMovimiento);
+}
+
+function pintarCanvas(imagenPersonaje) {
+  mascotaJugadorObjeto.x += mascotaJugadorObjeto.velocidadX; //Sumamos a la posición actual del personaje la velocidad indicada.
+  mascotaJugadorObjeto.y += mascotaJugadorObjeto.velocidadY;
   lienzo.clearRect(0, 0, mapa.clientWidth, mapa.height);
   let imagenDragon = new Image();
-  imagenDragon.src = imagenSrc;
-  lienzo.drawImage(
-    imagenDragon,
-    redDragon.x,
-    redDragon.y,
-    redDragon.ancho,
-    redDragon.alto
-  );
+  imagenDragon.src = imagenPersonaje;
+  //pintamos el fondo
+  lienzo.drawImage(mapaBackground, 0, 0, mapa.width, mapa.height);
+  //Pintamos el jugador
+  mascotaJugadorObjeto.pintarDragonPon(imagenDragon);
+  //Pintamos los enemigos
+  redDragonEnemigo.pintarDragonPonEnemigo();
+  blueDragonEnemigo.pintarDragonPonEnemigo();
+  greyDragonEnemigo.pintarDragonPonEnemigo();
+
+  //Comprobamos las colisiones solamente si el jugador se está moviendo
+  if (mascotaJugadorObjeto.x !== 0 || mascotaJugadorObjeto.y !== 0) {
+    revisarColision(redDragonEnemigo);
+    revisarColision(greyDragonEnemigo);
+    revisarColision(blueDragonEnemigo);
+  }
 }
 
 // Funciones para controlar el movimiento del personaje
 function moverArriba() {
-  redDragon.velocidadY = -5;
+  mascotaJugadorObjeto.velocidadY = -5;
   /* console.log('Mover Arriba');
   redDragon.y -= 5;
   presentarMascotaJugador(redDragon.foto);
@@ -219,7 +270,7 @@ function moverArriba() {
 }
 
 function moverAbajo() {
-  redDragon.velocidadY = 5;
+  mascotaJugadorObjeto.velocidadY = 5;
   /* console.log('Mover Abajo');
   redDragon.y += 5;
   presentarMascotaJugador(redDragon.foto);
@@ -227,7 +278,7 @@ function moverAbajo() {
 }
 
 function moverIzquierda() {
-  redDragon.velocidadX = -5;
+  mascotaJugadorObjeto.velocidadX = -5;
   /* console.log('Mover Izquierda');
   redDragon.x -= 5;
   presentarMascotaJugador(redDragon.foto);
@@ -235,7 +286,7 @@ function moverIzquierda() {
 }
 
 function moverDerecha() {
-  redDragon.velocidadX = 5;
+  mascotaJugadorObjeto.velocidadX = 5;
   /* console.log('Mover Derecha');
   redDragon.x += 5;
   presentarMascotaJugador(redDragon.foto);
@@ -263,11 +314,54 @@ function controlTeclado(event) {
 }
 
 function pararMovimiento() {
-  redDragon.velocidadX = 0;
-  redDragon.velocidadY = 0;
+  mascotaJugadorObjeto.velocidadX = 0;
+  mascotaJugadorObjeto.velocidadY = 0;
 }
 // Fin de las funciones que controlan el movimiento del personaje.
 
+//Función para obtener el objeto completo del personaje seleccionado
+function obtenerPersonaje() {
+  //Recorremos la lista completa de personajes que tenemos
+  for (let i = 0; i < dragonPones.length; i++) {
+    //Comprobamos cuando coincide el personaje seleccionado con el de la lista
+    if (mascotaJugador === dragonPones[i].nombre) {
+      //Devolvemos el objeto completo del personaje seleccionado
+      return dragonPones[i];
+    }
+  }
+}
+
+//Control de colisiones
+function revisarColision(enemigo) {
+  const arribaEnemigo = enemigo.y;
+  const abajoEnemigo = enemigo.y + enemigo.alto;
+  const derechaEnemigo = enemigo.x + enemigo.ancho;
+  const izquierdaEnemigo = enemigo.x;
+
+  const arribaMascota = mascotaJugadorObjeto.y;
+  const abajoMascota = mascotaJugadorObjeto.y + mascotaJugadorObjeto.alto;
+  const derechaMascota = mascotaJugadorObjeto.x + mascotaJugadorObjeto.ancho;
+  const izquierdaMascota = mascotaJugadorObjeto.x;
+
+  if (
+    abajoMascota < arribaEnemigo ||
+    arribaMascota > abajoEnemigo ||
+    derechaMascota < izquierdaEnemigo ||
+    izquierdaMascota > derechaEnemigo
+  ) {
+    return; //Si se cumple alguna de las condiciones no devolvemos nada ya que
+    //no hay colisión y en el caso de que no se cumpla ninguna de las condiciones
+    //nos salimos del if y devolvemos un alert por ahora.
+  }
+  pararMovimiento();
+  mascotaJugadorObjeto.x = mascotaJugadorObjeto.x - 25;
+  sectionSeleccionarAtaque.style.display = 'flex';
+  sectionVerMapa.style.display = 'none';
+  seleccionarMascotaEnemigo(enemigo);
+  //alert('Hay colision con: ' + enemigo.nombre);
+}
+
+// Funciones que hacen referencia a los ataques del jugador.
 function extraerAtaques(mascotaJugador) {
   let ataques;
 
@@ -331,22 +425,27 @@ function secuenciaAtaque() {
     });
   });
 }
+// Fin funciones que hacen referencia a los ataques del jugador
 
-function seleccionarMascotaEnemigo() {
+// Función para seleccionar el enemigo.
+
+function seleccionarMascotaEnemigo(enemigo) {
   //Generamos la mascota del Enemigo de forma aleatoria con nuestro array de dragonPones
-  let mascotaAleatoria = aleatorio(0, dragonPones.length - 1);
+  //let mascotaAleatoria = aleatorio(0, dragonPones.length - 1);
 
   //Mostramos el nombre en el HTML
-  spanMascotaEnemigo.innerHTML = dragonPones[mascotaAleatoria].nombre;
+  //spanMascotaEnemigo.innerHTML = dragonPones[mascotaAleatoria].nombre;
+  spanMascotaEnemigo.innerHTML = enemigo.nombre;
   //Guardamos los ataques correspondientes a la mascota elegida. Esta queda guardada en un Array de objetos
-  ataquesDragonPonEnemigo = dragonPones[mascotaAleatoria].ataque;
+  //ataquesDragonPonEnemigo = dragonPones[mascotaAleatoria].ataque;
+  ataquesDragonPonEnemigo = enemigo.ataques;
   //console.log(ataquesDragonPonEnemigo);
   //Recorremos el array de ataques para tomar solamente el nombre y generar la secuencia de ataque del Enemigo
-  ataquesDragonPonEnemigo.forEach((ataqueNombre) => {
+  /* ataquesDragonPonEnemigo.forEach((ataqueNombre) => {
     //console.log(ataqueNombre.nombre);
     ataqueEnemigo.push(ataqueNombre.nombre); //Ya tenemos la secuencia ordenada
     //console.log(ataqueEnemigo);
-  });
+  }); */
 
   secuenciaAtaque();
 }
@@ -381,6 +480,7 @@ function ataqueAleatorioEnemigo() {
   let ataqueEnemigoAux = [];
   //Creamos la secuencia aleatoria
   let sizeAtaqueEnemigo = ataqueEnemigo.length;
+  console.log('Tamaño ataque enemigo: ' + ataqueEnemigo);
   for (let i = 0; i < sizeAtaqueEnemigo; i++) {
     elementoAleatorio = aleatorio(0, ataqueEnemigo.length - 1);
     ataqueEnemigoAux.push(ataqueEnemigo[elementoAleatorio]);
@@ -391,10 +491,14 @@ function ataqueAleatorioEnemigo() {
   //la forma ...spread, el método .concat y otras formas de hacerlo más completas. Revisar en profundidad como
   //copiar un array para ver las diferencias entre asignar y copiar.
   //console.log(ataqueEnemigo);
+  console.log('Secuencia de ataque generada?');
+  console.log(ataqueEnemigo);
   iniciarCombate();
   //combate();
 }
+// Fin funciones en referencia a la selección del enemigo y sus ataques.
 
+//Comienza el combate
 function iniciarCombate() {
   if (ataqueJugador.length === 5 && ataqueEnemigo.length === 5) {
     console.log('Iniciando el combate');
