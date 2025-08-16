@@ -202,6 +202,23 @@ function iniciarJuego() {
   sectionReiniciar.style.display = 'none';
   btnMascotaJugador.addEventListener('click', seleccionarMascotaJugador);
   botonReiniciar.addEventListener('click', reiniciarJuego);
+  unirseAlJuego();
+}
+
+function unirseAlJuego() {
+  fetch('http://localhost:8080/unirse').then(function (res) {
+    //console.log(res);
+    if (res.ok) {
+      //Si la respuesta es ok
+      res
+        .text() //Obtenemos el texto de la respuesta, que sería el id.
+        .then(function (respuesta) {
+          //Como el método .text() es asíncrono usamos .then para ejecutar una
+          //acción cuando recibamos la información solicitada, que no sabemos cuando será (ver asicronía en Javascript)
+          console.log(respuesta);
+        });
+    }
+  });
 }
 
 function seleccionarMascotaJugador() {

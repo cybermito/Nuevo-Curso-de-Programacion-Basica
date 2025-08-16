@@ -4,9 +4,29 @@ const express = require('express');
 //Creamos una instancia de nuestra aplicación con express.js
 const app = express();
 
+//Agregamos variables
+const jugadores = []; //Guardaremos la lista de jugadores conectados al juego
+
+//Clases del juego
+//Clase Jugador, para construir cada jugador nuevo que se conecte
+class Jugador {
+  constructor(id) {
+    this.id = id;
+  }
+}
+
 //Configuramos las peticiones que vamos a recibir y como vamos a responder
-app.get('/', (req, res) => {
-  res.send('<h1>Hola Mundo</h1>');
+//Endpoint/petición unirse, enlace para unirse al juego.
+app.get('/unirse', (req, res) => {
+  const id = `${Math.random()}`; //Creamos el id aleatorio
+  const jugador = new Jugador(id); //Creamos el objeto jugador con su id.
+  jugadores.push(jugador); //Agregamos el jugador a la lista
+  //Establecemos las cabecera de comunicación donde indicamos los permisos
+  //de acceso a este, desde que origenes podemos hacer peticiones al servidor
+  //En este caso permitimos a todos los origenes por facilidad y demostración
+  //pero no es lo más seguro, así que debemos tener cuidaddo con estos comandos.
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.send(id);
 });
 
 //Pruebas a parte personales
