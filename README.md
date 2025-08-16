@@ -88,4 +88,15 @@ Pasos:
 6. Métodos de Clases en JS para Juegos Interactivos.
 7. Detección de colisiones en Videojuegos en Javascript.
 8. Programación de eventos y colisiones en un juego interactivo.
-9.
+9. Ajuste Responsive de Mapas en Pantallas con Javascript.
+10. Estilos Responsive en HTML y CSS para mapas interactivos.
+
+## Backend: videojuego multijugador
+
+1. Desarrollo de Juegos Multijugador con Cliente-Servidor y API.
+2. Instalación de Node.js en Windows para desarrollo backend.
+3. Uso básico de la terminal de comandos y Node.js.
+4. Creación de un servidor básico con Express.js en Node.js.
+5. Conceptos clave de URIs y Verbos HTTP en Node.js
+6. Desarrollo de API con Node.js y Comunicación Frontend y Backend
+7.

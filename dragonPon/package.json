@@ -1,0 +1,14 @@
+{
+  "name": "dragonpon",
+  "version": "1.0.0",
+  "description": "Juego multijugador del curso \"Programación Básica\" de Platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cybermito",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

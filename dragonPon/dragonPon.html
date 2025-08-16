@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DRAGONPON</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1 class="titulo" id="title">DragonPon</h1>
+
+    <section id="seleccionar-mascota">
+      <h2 class="subtitulo">Elige a tu mascota</h2>
+
+      <div id="contenedorTarjetas" class="tarjetas">
+        <!-- <input type="radio" name="mascota" id="pinkDragon"/>
+                <label class="tarjeta-dragonpon" for="pinkDragon">
+                    <p>PinkDragon</p>
+                    <img src="./img/PinkDragon.png" alt="PinkDragon">
+                </label>
+
+                <input type="radio" name="mascota" id="intelecDragon"/>
+                <label class="tarjeta-dragonpon" for="intelecDragon">
+                    <p>IntelecDragon</p>
+                    <img src="./img/IntelecDragon.png" alt="intelecDragon">
+                </label>
+
+                <input type="radio" name="mascota" id="pyDragon"/>
+                <label class="tarjeta-dragonpon" for="pyDragon">
+                    <p>PyDragon</p>
+                    <img src="./img/PyDragon.png" alt="PyDragon">
+                </label> -->
+      </div>
+
+      <button id="btn-mascota">Seleccionar</button>
+    </section>
+
+    <section id="ver-mapa">
+      <h2 class="subtitulo">Recorre el mapa</h2>
+      <canvas id="mapa"></canvas>
+      <div class="botoneraMovimiento">
+        <button id="arriba" class="mover">⬆️</button>
+        <button id="abajo" class="mover">⬇️</button>
+        <button id="derecha" class="mover">➡️</button>
+        <button id="izquierda" class="mover">⬅️</button>
+      </div>
+    </section>
+
+    <section id="seleccionar-ataque">
+      <h2 class="subtitulo">Elige tu ataque</h2>
+
+      <div id="contenedorAtaques" class="select-ataque">
+        <!-- <button id="btn-fuego" class="boton-de-ataque">
+          <p>Fuego</p>
+          <img src="img/simbol-fuego.png" alt="Ataque Fuego" />
+        </button>
+        <button id="btn-agua" class="boton-de-ataque">
+          <p>Agua</p>
+          <img src="img/simbol-agua.png" alt="Ataque Agua" />
+        </button>
+        <button id="btn-tierra" class="boton-de-ataque">
+          <p>Tierra</p>
+          <img src="img/simbol.tierra.png" alt="Ataque Tierra" />
+        </button> -->
+      </div>
+
+      <div>
+        <section id="mensajes">
+          <p id="resultado">¡Vamos!</p>
+          <section id="reiniciar">
+            <button id="btn-reiniciar">Reiniciar</button>
+          </section>
+        </section>
+      </div>
+
+      <div class="ataques">
+        <div class="ataques-jugador">
+          <p id="victorias-jugador" class="subtitulo"></p>
+          <p id="mascota-jugador"></p>
+          <div id="ataques-del-jugador"></div>
+        </div>
+        <div class="ataques-enemigo">
+          <p id="victorias-enemigo" class="subtitulo"></p>
+          <p id="mascota-enemigo"></p>
+          <div id="ataques-del-enemigo"></div>
+        </div>
+      </div>
+    </section>
+    <script src="./js/dragonPon.js" defer></script>
+  </body>
+</html>
