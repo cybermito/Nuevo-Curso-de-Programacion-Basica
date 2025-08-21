@@ -44,6 +44,7 @@ abajo.addEventListener('mouseup', pararMovimiento);
 izquierda.addEventListener('mouseup', pararMovimiento);
 derecha.addEventListener('mouseup', pararMovimiento);
 
+let jugadorId = null;
 let dragonPones = [];
 let opcionDeDragonPones;
 let mascotaJugador;
@@ -216,6 +217,7 @@ function unirseAlJuego() {
           //Como el método .text() es asíncrono usamos .then para ejecutar una
           //acción cuando recibamos la información solicitada, que no sabemos cuando será (ver asicronía en Javascript)
           console.log(respuesta);
+          jugadorId = respuesta;
         });
     }
   });
@@ -256,6 +258,10 @@ function seleccionarMascotaJugador() {
   spanMascotaJugador.innerHTML = mascotaJugador;
   mascotaJugadorObjeto = obtenerPersonaje(mascotaJugador);
   pintarCanvas(mascotaJugadorObjeto.foto);
+
+  //Llamamos a la función que enviará los datos del dragonPon seleccionado por el jugador.
+  seleccionarDragonPon(mascotaJugador);
+
   //Llamamos a la función extraerAtaques para extraer los ataques de la mascota seleccionada.
   extraerAtaques(mascotaJugador);
 
@@ -264,6 +270,19 @@ function seleccionarMascotaJugador() {
   //Cargamos el mapa una vez obtenidos todas las propiedades y métodos de nuestro personaje.
   sectionVerMapa.style.display = 'flex'; //Activamos el canvas para que se vea
   iniciarMapa();
+}
+
+//Función que enviará los datos del dragonPon seleccionado
+function seleccionarDragonPon(mascotaJugador) {
+  fetch(`http://localhost:8080/dragonPon/${jugadorId}`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      dragonPon: mascotaJugador
+    })
+  });
 }
 
 function iniciarMapa() {
@@ -287,6 +306,8 @@ function pintarCanvas(imagenPersonaje) {
   lienzo.drawImage(mapaBackground, 0, 0, mapa.width, mapa.height);
   //Pintamos el jugador
   mascotaJugadorObjeto.pintarDragonPon(imagenDragon);
+  //Llámada a la función que enviará la posición/coordenadas del jugador
+  enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y);
   //Pintamos los enemigos
   redDragonEnemigo.pintarDragonPonEnemigo();
   blueDragonEnemigo.pintarDragonPonEnemigo();
@@ -298,6 +319,20 @@ function pintarCanvas(imagenPersonaje) {
     revisarColision(greyDragonEnemigo);
     revisarColision(blueDragonEnemigo);
   }
+}
+
+//Función que enviará los datos de coordenadas y posición del jugador al servidor.
+function enviarPosicion(x, y) {
+  fetch(`http://localhost:8080/dragonPon/${jugadorId}/posicion`, {
+    //Indicamos el método de envío y las cabeceras de configuración del mensaje
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ x, y }) //Como en este caso el json tanto el nombre de la llave
+    //como el nombre de la variable asignada es el mismo, javascript nos permite ponerlo con
+    //solo un valor. x: x === x, y: y === y
+  });
 }
 
 // Funciones para controlar el movimiento del personaje

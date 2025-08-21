@@ -99,7 +99,5 @@ Pasos:
 4. Creación de un servidor básico con Express.js en Node.js.
 5. Conceptos clave de URIs y Verbos HTTP en Node.js
 6. Desarrollo de API con Node.js y Comunicación Frontend y Backend
-7. Selección de Mokepon y Comunicación JSON en Express.js
-8. Implementación de un Endpoint/servicio para coordenadas de jugadores en Node.js
-9. Integración de Coordenadas de Jugadores en DragonPon Multijugador
-10.
+7. Selección de Mokepon y Comunicación JSON en Express.js.
+8.
